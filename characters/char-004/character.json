@@ -1,0 +1,230 @@
+{
+  "id": "char-004",
+  "displayName": "Unnamed",
+  "status": "concept",
+  "role": "main_cast_candidate",
+  "relationship": {
+    "friendOf": "char-003"
+  },
+  "style": {
+    "type": "chibi",
+    "rendering": "flat_digital_character_art",
+    "lineart": "bold_irregular_black_outline",
+    "shading": "simple_flat_color_with_soft_accents",
+    "background": "#FFFFFF",
+    "palette": {
+      "skin": "#DCEFF2",
+      "skinShadow": "#C2DDE2",
+      "hair": "#CDE8EC",
+      "hairAccent": "#2AB7C4",
+      "eye": "#0FA38C",
+      "eyeMark": "#2AB7C4",
+      "cheekSpot": "#5A2A4A",
+      "collar": "#2A5BD7",
+      "collarShadow": "#1A3FA0",
+      "collarGem": "#3AB5C0",
+      "vest": "#C8C2B8",
+      "star": "#1FA98C",
+      "sleeve": "#A8E8E0",
+      "sleeveAlt": "#3AB5C0",
+      "cuff": "#2A5BD7",
+      "trousers": "#2F6BD8",
+      "trouserHighlight": "#7AA5E8",
+      "shoes": "#3A2A2A",
+      "flower": "#8A2A7A",
+      "flowerCenter": "#6A1F60",
+      "stem": "#3A9A4A"
+    }
+  },
+  "appearance": {
+    "proportions": {
+      "headToBody": "large_chibi_head_small_compact_body",
+      "headShape": "wide_flattened_round_oval",
+      "body": "small_compact_full_body",
+      "crop": "full_body"
+    },
+    "pose": {
+      "type": "standing_neutral",
+      "orientation": "slight_three_quarter_turn_toward_left",
+      "headTilt": "slightly_down_and_left",
+      "arms": "left_arm_extended_outward_holding_a_small_purple_flower; right_arm_relaxed_at_side",
+      "legs": "standing_naturally_with_feet_on_ground",
+      "notSeated": true
+    },
+    "skin": {
+      "color": "#DCEFF2",
+      "shadow": "#C2DDE2",
+      "texture": "smooth_flat",
+      "nose": false,
+      "eyebrows": false,
+      "eyelashes": false,
+      "freckles": false,
+      "blush": false
+    },
+    "ears": {
+      "visibleCount": 1,
+      "visibleEar": "viewer_right",
+      "shape": "long_pointed_triangular_ear_angled_up_and_right",
+      "innerColor": "#3AB5C0",
+      "otherEar": "hidden_by_hair"
+    },
+    "hair": {
+      "color": "#CDE8EC",
+      "accent": "#2AB7C4",
+      "silhouette": "large_rounded_dome_with_asymmetrical_side_locks",
+      "outline": "thick_irregular_black",
+      "length": "ends_at_collar_no_long_back_hair",
+      "highlights": [
+        "large_white_oval_highlight_upper_left",
+        "wavy_white_highlight_upper_right",
+        "small_white_patch_at_far_left"
+      ],
+      "bangs": "large_left_sweeping_bang_covering_part_of_left_face_and_ending_in_a_midface_triangular_tip",
+      "foreheadCurl": "small_hook_or_comma_shaped_lock_at_center_forehead_with_turquoise_edges",
+      "eyeLock": "medium_lock_over_visible_eye_with_downward_tip_and_turquoise_edges",
+      "otherLocks": "small_pointed_lock_at_left_face; upper_and_lower_locks_behind_visible_right_ear",
+      "asymmetry": "large_solid_hair_mass_on_viewer_left; spiky_side_on_viewer_right"
+    },
+    "face": {
+      "eyes": {
+        "count": 1,
+        "visibleEye": "character_left_eye_on_viewer_right",
+        "shape": "large_slightly_tilted_oval",
+        "iris": "#0FA38C",
+        "whiteCrescent": "small_visible_crescent_at_far_right",
+        "highlight": "large_white_round_highlight",
+        "separateBlackPupil": false,
+        "upperLid": "thick_curved_black_line",
+        "lowerLid": "thin_black_line",
+        "otherEye": "fully_hidden_by_bangs_no_visible_outline"
+      },
+      "markUnderEye": {
+        "color": "#2AB7C4",
+        "shape": "small_dark_turquoise_smudge_with_two_tiny_trailing_dots",
+        "meaning": "unspecified_not_a_tear_or_eye"
+      },
+      "cheekSpot": {
+        "color": "#5A2A4A",
+        "shape": "small_dark_purple_brown_oval_on_right_cheek",
+        "confirmed": true
+      },
+      "mouth": {
+        "shape": "small_thin_curved_line",
+        "expression": "quiet_gentle_smile"
+      },
+      "nose": false,
+      "eyebrows": false,
+      "eyelashes": false
+    },
+    "outfit": {
+      "collar": {
+        "type": "wide_small_pointed_cape_like_high_collar",
+        "color": "#2A5BD7",
+        "shadow": "#1A3FA0",
+        "twoDownwardPointedSides": true,
+        "centerOrnament": {
+          "type": "small_oval_gem",
+          "color": "#3AB5C0"
+        }
+      },
+      "vest": {
+        "type": "sleeveless_trapezoid_vest",
+        "color": "#C8C2B8",
+        "widerAtBottom": true,
+        "outline": "thick_black",
+        "frontEmblem": {
+          "type": "large_five_point_star",
+          "color": "#1FA98C",
+          "outline": "thin_black"
+        }
+      },
+      "arms": {
+        "left": {
+          "sleeve": {
+            "type": "long_slightly_puffed_sleeve_tapering_at_wrist",
+            "color": "#A8E8E0"
+          },
+          "cuff": {
+            "type": "slanted_rectangular_cuff",
+            "color": "#2A5BD7"
+          },
+          "hand": "small_mitten_like_hand_with_two_subtle_finger_projections",
+          "holds": "purple_flower"
+        },
+        "right": {
+          "sleeve": {
+            "type": "long_narrow_sleeve",
+            "color": "#3AB5C0"
+          },
+          "hand": "small_skin_tone_hand",
+          "pose": "resting_near_side"
+        }
+      },
+      "trousers": {
+        "type": "wide_blue_trousers",
+        "color": "#2F6BD8",
+        "shape": "simple_chibi_trouser_legs",
+        "highlights": "pale_blue_oval_highlights_on_knees",
+        "highlightColor": "#7AA5E8",
+        "cuffs": false
+      },
+      "shoes": {
+        "type": "simple_dark_brown_rounded_rectangular_shoes",
+        "color": "#3A2A2A",
+        "laces": false,
+        "visibleSole": false
+      }
+    },
+    "heldObject": {
+      "type": "small_purple_flower",
+      "petals": 5,
+      "petalShape": "rounded_overlapping",
+      "color": "#8A2A7A",
+      "center": "#6A1F60",
+      "stem": "#3A9A4A",
+      "position": "in_left_hand_extended_outward"
+    }
+  },
+  "expression": [
+    "quiet",
+    "gentle",
+    "dreamlike",
+    "mysterious"
+  ],
+  "gameIntegration": {
+    "selectable": true,
+    "useAsStageCharacter": true,
+    "cosmeticsEnabled": true,
+    "comboInteraction": {
+      "enabled": true,
+      "reactsToCombo": true,
+      "reactionEvents": [
+        "combo_started",
+        "combo_milestone",
+        "combo_break",
+        "full_combo"
+      ],
+      "animationHooks": [
+        "combo_idle",
+        "combo_cheer",
+        "combo_surprised",
+        "combo_disappointed",
+        "full_combo_celebration"
+      ],
+      "syncWithComboCounter": true,
+      "defaultAnimationSet": "pending"
+    }
+  },
+  "notes": [
+    "This character is a friend of char-003.",
+    "The original paper reference depicts the character sitting; the in-game character must instead be standing in a neutral full-body pose.",
+    "Do not include notebook paper, ruled lines, page texture, margin decorations, or grass in the character asset. Use a clean transparent or plain background.",
+    "The dark purple-brown oval on the right cheek is confirmed and must remain.",
+    "Only one eye is visible; the other eye is completely covered by the bangs and must not be invented.",
+    "The turquoise mark below the visible eye is a mark, not a tear or an extra eye.",
+    "Keep the small purple flower in the character's left hand.",
+    "Do not add a nose, eyebrows, eyelashes, blush, extra ears, or unrequested accessories.",
+    "The character must be selectable and have combo-linked reactions; detailed animation assets remain to be created.",
+    "Name, backstory, voice, and exact animation timing have not been provided."
+  ]
+}
