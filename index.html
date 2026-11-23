@@ -3,178 +3,66 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Beat Orbit — Sadeem Stage Test</title>
+<title>Beat Orbit | Sadeem Stage</title>
 <style>
-:root{--sky:#9fe1f2;--ink:#33465a;--glass:rgba(255,255,255,.55);--line:rgba(255,255,255,.9);--blue:#4c8fbd}
-*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Tahoma,Arial,sans-serif;color:var(--ink)}
-body{min-height:100svh;background:linear-gradient(#a9e6f4 0 57%,#a9d88e 57% 100%);overflow-x:hidden}
-.stage{position:relative;min-height:100svh;overflow:hidden;isolation:isolate;background:linear-gradient(180deg,#a8e5f3 0%,#d5f3f3 56%,#a9d98c 56%,#83c979 100%)}
-.sun{position:absolute;width:116px;height:116px;border-radius:50%;background:#ffd75c;top:7%;left:8%;box-shadow:0 0 0 9px #ffe99a55,0 0 0 17px #fff2b033}
-.sun:before,.sun:after{content:"";position:absolute;background:#ffd75c;border-radius:30px;width:18px;height:38px;left:48px;top:-25px;box-shadow:0 128px #ffd75c}
-.sun:after{transform:rotate(90deg);top:39px;left:-25px;box-shadow:128px 0 #ffd75c}
-.cloud{position:absolute;width:150px;height:45px;border-radius:50px;background:#fff;top:17%;left:37%;filter:drop-shadow(0 5px 0 #b7e6ed)}
-.cloud:before,.cloud:after{content:"";position:absolute;background:#fff;border-radius:50%;bottom:12px}
-.cloud:before{width:62px;height:62px;left:25px}.cloud:after{width:78px;height:78px;left:65px}
-.cloud.c2{top:10%;left:73%;transform:scale(.72)}
-.hill{position:absolute;bottom:26%;height:27%;width:70%;border-radius:50% 50% 0 0;background:#8dce7b;z-index:-1}
-.hill.h1{left:-18%;transform:rotate(-5deg)}.hill.h2{right:-20%;bottom:24%;background:#77c477;transform:rotate(5deg)}
-.house{position:absolute;left:12%;bottom:26%;width:112px;height:83px;background:#ffe0a2;border:4px solid #6b594d;border-radius:5px;box-shadow:inset 0 -8px #f2c987}
-.roof{position:absolute;left:-13px;top:-47px;width:130px;height:65px;background:#e97967;border:4px solid #6b594d;clip-path:polygon(50% 0,100% 100%,0 100%)}
-.door{position:absolute;bottom:0;left:43px;width:27px;height:47px;background:#a86d53;border:3px solid #6b594d;border-bottom:0;border-radius:12px 12px 0 0}
-.window{position:absolute;right:10px;top:17px;width:24px;height:24px;background:#9adce8;border:3px solid #6b594d}
-.grassline{position:absolute;bottom:24%;height:5px;width:100%;background:#5fae66}
-.topbar{position:relative;z-index:8;display:flex;justify-content:space-between;align-items:center;padding:16px clamp(14px,3vw,34px)}
-.logo{font-weight:900;letter-spacing:2px;background:#ffffff9c;border:1px solid white;padding:9px 14px;border-radius:14px}
-.stats{display:flex;gap:9px}.stat{background:#ffffffa8;border:1px solid white;border-radius:12px;padding:8px 12px;font-weight:700;font-size:13px}
-.playfield{position:absolute;inset:15% 2% 5%;z-index:2}
-.lanes{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
-.lane{fill:none;stroke:rgba(255,255,255,.42);stroke-width:54;stroke-linecap:round}
-.laneedge{fill:none;stroke:rgba(69,139,167,.23);stroke-width:2}
-.tile{position:absolute;width:clamp(42px,6vw,68px);height:24px;border-radius:10px;border:2px solid #fff;background:linear-gradient(135deg,#ffffffd9,#8ee7f0a8);box-shadow:0 5px 15px #4d9eaf55,inset 0 0 12px #fff;transform:rotate(-12deg);animation:travel 2.8s linear forwards;z-index:5}
-@keyframes travel{from{top:2%;left:var(--far);opacity:0}12%{opacity:1}to{top:88%;left:var(--near);opacity:1}}
-.keys{position:absolute;bottom:3%;left:5%;right:5%;height:80px;display:flex;justify-content:center;gap:7px;z-index:7;pointer-events:none}
-.key{width:min(9vw,62px);height:70px;border-radius:12px 12px 19px 19px;background:linear-gradient(145deg,#ffffffd9,#c8f1f3aa);border:2px solid #fff;box-shadow:0 8px 0 #6aa8b755,inset 0 0 14px #fff;display:grid;place-items:center;font-size:22px;font-weight:bold;color:#4d8298;pointer-events:auto;cursor:pointer;transition:.08s}
-.key.hit{transform:translateY(6px);box-shadow:0 2px 0 #6aa8b755,inset 0 0 18px #fff;background:#fff}
-.character{position:absolute;right:5%;bottom:9%;width:clamp(155px,22vw,230px);height:clamp(205px,31vw,300px);z-index:6;pointer-events:none;filter:drop-shadow(0 8px 4px #507b7340);transition:transform .25s ease}
-.character svg{display:block;width:100%;height:100%;overflow:visible}
-.character.run{transform:translateX(-12px) translateY(-3px)}
-@media(max-width:600px){.character{right:1%;bottom:16%;width:150px;height:205px}}
-.toast{position:absolute;top:10%;left:50%;transform:translateX(-50%);font-weight:900;font-size:clamp(20px,4vw,36px);color:#fff;text-shadow:0 3px 0 #4c8fbd,0 5px 14px #386b8c;z-index:10;opacity:0;transition:.12s;white-space:nowrap}
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;min-height:100%;font-family:Tahoma,Arial,sans-serif;background:#e9e5dc;color:#20252b}
+body{min-height:100svh;display:grid;place-items:center;overflow:hidden}
+.stage{position:relative;width:min(100vw,100svh);height:min(100vw,100svh);aspect-ratio:1/1;overflow:hidden;background:#f7f4ed url("https://raw.githubusercontent.com/nonabeso977-bot/do-you-love-me-/main/%D8%A8%D8%AF%D9%88%D9%86%20%D8%A7%D8%B3%D9%8513_20261124014011.png") center/100% 100% no-repeat;isolation:isolate}
+.topbar{position:absolute;z-index:10;top:2%;left:2%;right:2%;display:flex;justify-content:space-between;align-items:center;direction:ltr;pointer-events:none}
+.logo,.stat{background:#fff9;border:2px solid #252525;border-radius:5px;padding:clamp(4px,1.3vw,9px) clamp(6px,1.7vw,13px);font-size:clamp(8px,2vw,13px);font-weight:900;color:#20252b}
+.stats{display:flex;gap:5px}
+.character{position:absolute;z-index:5;left:-1%;bottom:0;width:38%;height:58%;object-fit:contain;object-position:left bottom;pointer-events:none;filter:drop-shadow(0 2px 1px #3334)}
+.playfield{position:absolute;inset:0;z-index:4;pointer-events:none}
+.note{position:absolute;width:7.5%;height:3.2%;border:2px solid #252525;border-radius:5px;box-shadow:0 2px 0 #0002;transform:translate(-50%,-50%);animation:noteTravel var(--duration,2.7s) linear forwards;z-index:6}
+.note[data-lane="0"],.note[data-lane="3"]{background:#48b85b}
+.note[data-lane="1"],.note[data-lane="4"]{background:#e85a60}
+.note[data-lane="2"]{background:#f2d34c}
+@keyframes noteTravel{from{top:24%;left:var(--from);opacity:0}10%{opacity:1}to{top:84%;left:var(--to);opacity:1}}
+.hit-zones{position:absolute;z-index:8;left:23%;right:8%;bottom:13%;height:12%;display:grid;grid-template-columns:repeat(5,1fr);gap:1%;pointer-events:auto}
+.hit-zone{border:0;background:transparent;min-width:0;touch-action:manipulation}
+.hit-zone:active{background:#ffffff25}
+.toast{position:absolute;z-index:12;top:13%;left:50%;transform:translateX(-50%);font-weight:900;font-size:clamp(16px,4vw,30px);color:#222;background:#fff9;border:2px solid #222;padding:4px 10px;opacity:0;transition:opacity .12s;white-space:nowrap;pointer-events:none}
 .toast.show{opacity:1}
-.hudbottom{position:absolute;bottom:2%;left:50%;transform:translateX(-50%);z-index:9;background:#ffffffa8;border:1px solid white;border-radius:12px;padding:7px 12px;font-size:12px;white-space:nowrap}
-.start{position:absolute;inset:0;z-index:20;display:grid;place-items:center;background:#dff8f2aa;backdrop-filter:blur(4px)}
-.startbox{background:#fffdf2;border:3px solid white;border-radius:24px;padding:24px;text-align:center;box-shadow:0 12px 35px #456c6c33;max-width:320px}
-.startbox h1{margin:0 0 8px;color:#4c8fbd}.startbox p{font-size:14px;line-height:1.7}
-button{font:inherit}.go{border:0;background:#4c9cc1;color:white;font-weight:bold;padding:12px 25px;border-radius:14px;cursor:pointer}
-@media(max-width:600px){.house{transform:scale(.7);transform-origin:left bottom;left:4%;bottom:25%}.character{right:2%;bottom:17%}.playfield{inset:18% 0 8%}.keys{left:2%;right:2%;gap:4px}.key{height:58px}.hudbottom{bottom:1%}.stat{font-size:11px;padding:7px}}
-
-/* Beat Orbit: Sadeem's five-lane tunnel layout */
-.stage{background:linear-gradient(180deg,#a9e8f7 0%,#dff8fa 48%,#b5e69b 72%,#76c96e 100%)}
-.playfield{inset:13% 2% 5%}
-.lanes{filter:drop-shadow(0 8px 12px rgba(68,103,114,.14))}
-.tile{width:clamp(34px,5vw,58px);height:clamp(24px,3.4vw,34px);border-radius:8px;transform:translateX(-50%) rotate(-5deg);font-size:0;color:transparent;border:3px solid rgba(255,255,255,.9);box-shadow:0 5px 10px rgba(53,83,92,.18),inset 0 0 8px rgba(255,255,255,.7)}
-.key{width:min(17vw,100px);height:66px;border-radius:12px 12px 19px 19px;color:#fff;font-size:16px;border:3px solid rgba(255,255,255,.9);box-shadow:0 7px 0 rgba(58,77,86,.18);text-shadow:0 1px 2px #334}
-.key.green,.tile[data-i="0"],.tile[data-i="3"]{background:linear-gradient(145deg,#69d77a,#229d58)}
-.key.red,.tile[data-i="1"],.tile[data-i="4"]{background:linear-gradient(145deg,#ff8585,#dc414b)}
-.key.yellow,.tile[data-i="2"]{background:linear-gradient(145deg,#ffe879,#e8b92e)}
-.character{right:auto;left:2%;bottom:10%;transform:scale(.92);transform-origin:bottom left}
-.character.run{transform:translateX(12px) translateY(-3px) scale(.92)}
-@media(max-width:600px){.character{left:0;right:auto;bottom:18%;width:130px;height:180px}.keys{left:5%;right:5%;gap:5px}.key{height:54px;width:18vw;font-size:13px}.playfield{inset:17% 0 9%}}
-
-
-/* Sadeem stage: match the hand-drawn reference composition */
-.stage{background:#f7f4ed}
-.stage:before{content:"";position:absolute;inset:0;z-index:0;background:
- radial-gradient(circle at 5% 8%,#ffe36a 0 3.3%,transparent 3.5%),
- radial-gradient(circle at 5% 8%,transparent 0 5.2%,#f4d35e 5.4% 5.7%,transparent 6%),
- linear-gradient(180deg,#fbf8f1 0%,#f7f4ed 78%,#f3f0e8 100%)}
-.sun,.cloud,.hill,.house,.grassline{z-index:1}
-.sun{width:65px;height:65px;top:3%;left:2%;background:transparent;border:5px solid #e8c64b;box-shadow:none}
-.sun:before,.sun:after{background:#e8c64b;width:5px;height:28px;left:26px;top:-29px;box-shadow:0 93px #e8c64b}
-.sun:after{top:16px;left:-28px;transform:rotate(90deg);box-shadow:93px 0 #e8c64b}
-.cloud{width:110px;height:36px;top:10%;left:13%;background:#8fc2ed;border:4px solid #252525;filter:none;border-radius:35px}
-.cloud:before,.cloud:after{background:#8fc2ed;border:4px solid #252525;bottom:5px}
-.cloud:before{width:42px;height:48px;left:12px}.cloud:after{width:54px;height:58px;left:48px}
-.cloud.c2{left:78%;top:8%;transform:scale(.95)}
-.hill{display:none}
-.house{left:49%;bottom:51%;width:72px;height:65px;background:#ffe0a2;border:3px solid #252525;box-shadow:none;z-index:2}
-.roof{left:-8px;top:-31px;width:82px;height:39px;background:#f2cb55;border:3px solid #252525}
-.door{left:29px;width:17px;height:34px;border:2px solid #252525;background:#ee906c}
-.window{width:15px;height:17px;right:5px;top:12px;border:2px solid #252525}
-.grassline{bottom:22%;height:0;background:none;border-top:5px dashed #66b96c}
-.topbar{z-index:8}
-.logo,.stat{border:2px solid #252525;border-radius:4px;background:#fff9;color:#222}
-.playfield{inset:7% 0 2%;z-index:3}
-.lanes{z-index:2}
-.tile{width:clamp(28px,4.8vw,54px);height:clamp(20px,3vw,31px);border:3px solid #252525;border-radius:4px;box-shadow:none;transform:translateX(-50%);color:transparent;font-size:0}
-.tile[data-i="0"],.tile[data-i="3"]{background:#48b85b}
-.tile[data-i="1"],.tile[data-i="4"]{background:#e85a60}
-.tile[data-i="2"]{background:#f2d34c}
-@keyframes travel{from{top:25%;left:var(--far);opacity:0}12%{opacity:1}to{top:88%;left:var(--near);opacity:1}}
-.character{left:1%;right:auto;bottom:10%;width:clamp(130px,20vw,205px);height:clamp(200px,34vw,330px);z-index:6;transform:none;filter:drop-shadow(0 2px 0 #fff)}
-.character.run{transform:translateX(8px) translateY(-2px)}
-.keys{bottom:2%;left:23%;right:8%;height:65px;gap:7px;z-index:8}
-.key{height:58px;width:min(13vw,88px);border:3px solid #252525;border-radius:5px;box-shadow:none;color:transparent;text-shadow:none}
-.key.green{background:#48b85b}.key.red{background:#e85a60}.key.yellow{background:#f2d34c}
-.toast{z-index:12;color:#222;text-shadow:none;background:#fff9;border:2px solid #222;padding:5px 12px}
-.hudbottom{bottom:1%;left:50%;z-index:13;background:#fff9;border:2px solid #252525;color:#222}
-.start{background:#f7f4edcc;backdrop-filter:none}
-.startbox{border:3px solid #252525;border-radius:5px;box-shadow:4px 4px 0 #777;background:#fffaf0}
-.startbox h1{color:#24548c}.go{background:#e7c64b;color:#222;border:2px solid #252525;border-radius:5px}
-@media(max-width:600px){.character{left:0;right:auto;bottom:13%;width:125px;height:190px}.keys{left:25%;right:4%;bottom:2%;gap:3px}.key{height:48px;width:14vw}.house{left:49%;bottom:51%;transform:scale(.8);transform-origin:bottom left}.playfield{inset:8% 0 2%}}
-
+.hudbottom{position:absolute;z-index:12;bottom:1%;left:50%;transform:translateX(-50%);background:#fff9;border:2px solid #252525;border-radius:5px;padding:4px 8px;font-size:clamp(8px,1.8vw,11px);white-space:nowrap}
+.start{position:absolute;inset:0;z-index:20;display:grid;place-items:center;background:#f7f4edaa}
+.startbox{background:#fffaf0;border:3px solid #252525;border-radius:5px;box-shadow:4px 4px 0 #777;padding:20px;text-align:center;width:min(82%,300px)}
+.startbox h1{margin:0 0 8px;color:#24548c;font-size:clamp(20px,5vw,28px)}
+.startbox p{font-size:13px;line-height:1.7}
+button{font:inherit}.go{border:2px solid #252525;background:#e7c64b;color:#222;font-weight:bold;padding:10px 22px;border-radius:5px;cursor:pointer}
+@media(max-aspect-ratio:1/1){.stage{width:100vw;height:100vw;flex:none}}
+@media(min-aspect-ratio:1/1){.stage{width:100svh;height:100svh}}
 </style>
 </head>
 <body>
-<main class="stage">
- <div class="sun"></div><div class="cloud"></div><div class="cloud c2"></div>
- <div class="hill h1"></div><div class="hill h2"></div>
- <div class="house"><div class="roof"></div><div class="door"></div><div class="window"></div></div><div class="grassline"></div>
+<main class="stage" id="stage">
  <header class="topbar"><div class="logo">BEAT ORBIT</div><div class="stats"><div class="stat">COMBO <span id="combo">0</span></div><div class="stat">SCORE <span id="score">0</span></div><div class="stat">LIFE <span id="life">100</span>%</div></div></header>
- <section class="playfield" id="playfield">
-  <svg class="lanes" viewBox="0 0 1000 700" preserveAspectRatio="none" aria-hidden="true">
-   <path d="M385 170 Q330 245 210 700 L930 700 Q660 250 430 170Z" fill="rgba(255,255,255,.16)" stroke="#252525" stroke-width="5"/>
-   <g fill="none" stroke="#242424" stroke-width="5" stroke-linecap="round">
-    <path d="M385 170 Q330 245 210 700"/>
-    <path d="M394 170 Q370 250 354 700"/>
-    <path d="M405 170 Q430 250 500 700"/>
-    <path d="M416 170 Q490 250 646 700"/>
-    <path d="M426 170 Q550 250 790 700"/>
-    <path d="M435 170 Q620 250 930 700"/>
-   </g>
-   <g fill="none" stroke="#252525" stroke-width="4">
-    <path d="M354 360 Q500 340 646 360"/>
-    <path d="M280 500 Q500 478 720 500"/>
-    <path d="M225 610 Q500 590 875 610"/>
-   </g>
-  </svg>
-  <div class="toast" id="toast">PERFECT!</div>
-  <div class="character" id="character" role="img" aria-label="سديم تغني وتمسك ميكروفونًا">
-   <svg viewBox="0 0 260 380" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <g stroke="#242424" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
-     <path fill="#cde8ec" d="M40 100 Q22 35 86 20 Q155 -2 205 45 Q238 76 218 132 L235 155 L205 174 L50 164 L22 145Z"/>
-     <path fill="#75b9f5" stroke="none" d="M40 102 Q28 43 90 26 Q153 3 202 48 Q225 73 215 107 Q186 69 153 75 Q102 88 80 145 L38 149Z"/>
-     <path fill="#cde8ec" d="M47 90 Q72 35 123 35 Q92 64 99 104 Q83 140 52 156Z"/>
-     <path fill="#cde8ec" d="M113 42 Q160 17 194 54 Q167 61 156 96 Q139 114 116 118Z"/>
-     <path fill="#cde8ec" d="M190 65 Q230 82 222 127 L196 145 Q200 107 177 93Z"/>
-     <path fill="#dceff2" d="M63 110 Q94 78 151 84 Q190 91 196 135 Q196 180 151 196 Q104 205 74 173Z"/>
-     <path fill="#0c4b8d" d="M85 122 Q111 103 138 118 Q148 139 130 153 Q103 164 86 145Z"/>
-     <path fill="none" stroke="#f7d99c" stroke-width="3" d="M153 161 Q164 166 173 159"/>
-     <path fill="#dceff2" d="M112 193 L151 193 L151 216 L112 216Z"/>
-     <path fill="#8c9aa8" d="M83 211 Q130 198 170 214 L195 295 Q143 321 75 294Z"/>
-     <path fill="#164f91" stroke="none" d="M127 235 L140 254 L161 247 L150 267 L162 287 L139 277 L121 292 L126 269 L108 255 L130 256Z"/>
-     <path fill="#ffedcf" d="M84 221 Q54 230 48 280 L40 320 Q47 340 67 330 Q82 324 91 286Z"/>
-     <path fill="#ffedcf" d="M169 224 Q202 218 220 239 L230 259 Q224 274 209 264 L179 257Z"/>
-     <path fill="#536f8e" d="M83 294 L145 309 L129 374 L57 374Z"/>
-     <path fill="#536f8e" d="M143 305 L193 294 L238 372 L174 374Z"/>
-     <path fill="#3b3538" d="M213 250 L230 252 L221 302 L204 300Z"/>
-     <ellipse cx="222" cy="239" rx="18" ry="23" fill="#292b30"/>
-     <path fill="none" stroke="#666" stroke-width="2" d="M207 232 Q222 220 237 232 M207 241 Q222 229 237 241 M222 218 L222 260"/>
-    </g>
-    <g fill="#242424">
-     <path d="M228 207 q7 -13 14 0 q7 -13 14 0 q-7 16 -14 5 q-7 11 -14 -5Z"/>
-     <path d="M231 184 q6 -12 12 0 q6 -12 12 0 q-6 14 -12 5 q-6 9 -12 -5Z"/>
-    </g>
-   </svg>
-  </div>
-  <div class="keys" id="keys">
-   <button class="key green" data-key="a">A</button><button class="key red" data-key="s">S</button><button class="key yellow" data-key="d">D</button><button class="key green" data-key="f">F</button><button class="key red" data-key="g">G</button>
-  </div>
- </section>
- <div class="hudbottom">اضغطي A S D F G، أو المسّي المفاتيح</div>
- <div class="start" id="start"><div class="startbox"><h1>مرحلة سديم</h1><p>اختبار أولي لمسارات البيانو المنحنية والبلاطات الزجاجية وتفاعل الشخصية.</p><button class="go" id="go">ابدئي الاختبار</button></div></div>
+ <img class="character" src="https://raw.githubusercontent.com/nonabeso977-bot/do-you-love-me-/main/%D8%A8%D8%AF%D9%88%D9%86%20%D8%A7%D8%B3%D9%8513_20261124014302.png" alt="سديم">
+ <section class="playfield" id="playfield"></section>
+ <div class="hit-zones" id="keys" aria-label="مناطق الضغط">
+  <button class="hit-zone" data-key="a" aria-label="المسار الأول"></button>
+  <button class="hit-zone" data-key="s" aria-label="المسار الثاني"></button>
+  <button class="hit-zone" data-key="d" aria-label="المسار الثالث"></button>
+  <button class="hit-zone" data-key="f" aria-label="المسار الرابع"></button>
+  <button class="hit-zone" data-key="g" aria-label="المسار الخامس"></button>
+ </div>
+ <div class="toast" id="toast">PERFECT!</div>
+ <div class="hudbottom">A S D F G أو المسّي مواضع البلاطات</div>
+ <div class="start" id="start"><div class="startbox"><h1>مرحلة سديم</h1><p>الخلفية الأصلية محفوظة كما هي، وسديم طبقة مستقلة فوقها. ابدئي الاختبار لتجربة النوتات.</p><button class="go" id="go">ابدئي الاختبار</button></div></div>
 </main>
 <script>
-const $=s=>document.querySelector(s), scoreEl=$('#score'),comboEl=$('#combo'),lifeEl=$('#life'),toast=$('#toast'),character=$('#character'),playfield=$('#playfield');
-let score=0,combo=0,life=100,running=false,spawnTimer=null,runTimer=null,lastHit=0;
-const symbols=['A','S','D','F','G'],codes=['a','s','d','f','g'];
-function feedback(text){toast.textContent=text;toast.classList.add('show');clearTimeout(feedback.t);feedback.t=setTimeout(()=>toast.classList.remove('show'),420)}
-function spawn(){if(!running)return;const i=Math.floor(Math.random()*5),tile=document.createElement('div');tile.className='tile';tile.dataset.i=i;tile.textContent=symbols[i];const far=[30,40,48,56,66][i],near=[8,28,46,64,84][i];tile.style.setProperty('--far',far+'%');tile.style.setProperty('--near',near+'%');tile.style.left=far+'%';tile.style.top='-4%';tile.style.animationDuration=(2.4+Math.random()*.7)+'s';playfield.appendChild(tile);tile.addEventListener('animationend',()=>{if(tile.isConnected){tile.remove();combo=0;life=Math.max(0,life-5);render();feedback('MISS');if(life===0)stop()}});setTimeout(()=>{if(tile.isConnected)tile.style.opacity='.98'},50)}
+const $=s=>document.querySelector(s),scoreEl=$('#score'),comboEl=$('#combo'),lifeEl=$('#life'),toast=$('#toast'),playfield=$('#playfield');
+let score=0,combo=0,life=100,running=false,spawnTimer=null;
+const codes=['a','s','d','f','g'];
+const far=[34,40,46,52,58],near=[27,36,45,54,63];
+function feedback(t){toast.textContent=t;toast.classList.add('show');clearTimeout(feedback.timer);feedback.timer=setTimeout(()=>toast.classList.remove('show'),450)}
 function render(){scoreEl.textContent=score;comboEl.textContent=combo;lifeEl.textContent=life}
-function hit(code){if(!running)return;const idx=codes.indexOf(code);if(idx<0)return;const key=document.querySelector('[data-key="'+code+'"]');if(key){key.classList.add('hit');setTimeout(()=>key.classList.remove('hit'),110)}
-const tiles=[...document.querySelectorAll('.tile')].filter(t=>Number(t.dataset.i)===idx);if(tiles.length){tiles.sort((a,b)=>Math.abs(a.getBoundingClientRect().top-window.innerHeight*.72)-Math.abs(b.getBoundingClientRect().top-window.innerHeight*.72));const t=tiles[0];const y=t.getBoundingClientRect().top;const diff=Math.abs(y-window.innerHeight*.72);t.remove();if(diff<130){const rank=diff<45?'PERFECT':diff<90?'GREAT':'GOOD';combo++;score+=rank==='PERFECT'?100:rank==='GREAT'?70:40;feedback(rank);character.style.transform='translateY(-7px)';setTimeout(()=>character.style.transform='',130);if(combo===20||combo===40||combo===60)feedback(combo+' COMBO!')}else{combo=0;life=Math.max(0,life-3);feedback('MISS')}}else{combo=0;life=Math.max(0,life-2);feedback('MISS')}render()}
-function start(){document.querySelectorAll('.tile').forEach(t=>t.remove());score=0;combo=0;life=100;render();running=true;$('#start').style.display='none';spawnTimer=setInterval(spawn,720);spawn();runTimer=setInterval(()=>{if(!running)return;character.classList.toggle('run')},850)}
-function stop(){running=false;clearInterval(spawnTimer);clearInterval(runTimer);feedback('انتهى الاختبار');$('#start').style.display='grid';$('#start h1').textContent='انتهت الجولة';$('#start p').textContent='النتيجة: '+score+' | أعلى كومبو: '+combo+' | أعيدي التجربة لتختبري الإيقاع مرة أخرى.';$('#go').textContent='إعادة الاختبار'}
-$('#go').addEventListener('click',start);document.addEventListener('keydown',e=>{if(codes.includes(e.key)){e.preventDefault();hit(e.key)}});document.querySelectorAll('.key').forEach(k=>k.addEventListener('pointerdown',()=>hit(k.dataset.key)));
+function spawn(){if(!running)return;const i=Math.floor(Math.random()*5),n=document.createElement('div');n.className='note';n.dataset.lane=i;n.style.setProperty('--from',far[i]+'%');n.style.setProperty('--to',near[i]+'%');n.style.setProperty('--duration',(2.5+Math.random()*.35)+'s');n.style.left=far[i]+'%';n.style.top='24%';playfield.appendChild(n);n.addEventListener('animationend',()=>{if(n.isConnected){n.remove();combo=0;life=Math.max(0,life-5);render();feedback('MISS');if(!life)stop()}})}
+function hit(code){if(!running)return;const i=codes.indexOf(code);if(i<0)return;const notes=[...playfield.querySelectorAll('.note')].filter(n=>Number(n.dataset.lane)===i);if(!notes.length){combo=0;life=Math.max(0,life-2);feedback('MISS');render();return}notes.sort((a,b)=>Math.abs(a.getBoundingClientRect().top-innerHeight*.78)-Math.abs(b.getBoundingClientRect().top-innerHeight*.78));const n=notes[0],d=Math.abs(n.getBoundingClientRect().top-innerHeight*.78);n.remove();if(d<innerHeight*.09){const rank=d<innerHeight*.035?'PERFECT':d<innerHeight*.065?'GREAT':'GOOD';combo++;score+=rank==='PERFECT'?100:rank==='GREAT'?70:40;feedback(rank);if(combo%20===0)feedback(combo+' COMBO!')}else{combo=0;life=Math.max(0,life-3);feedback('MISS')}render()}
+function start(){playfield.innerHTML='';score=0;combo=0;life=100;render();running=true;$('#start').style.display='none';spawnTimer=setInterval(spawn,760);spawn()}
+function stop(){running=false;clearInterval(spawnTimer);$('#start').style.display='grid';$('#start h1').textContent='انتهت الجولة';$('#start p').textContent='النتيجة: '+score+' | أعلى كومبو: '+combo;$('#go').textContent='إعادة الاختبار'}
+$('#go').addEventListener('click',start);
+document.addEventListener('keydown',e=>{if(codes.includes(e.key.toLowerCase())){e.preventDefault();hit(e.key.toLowerCase())}});
+document.querySelectorAll('.hit-zone').forEach(b=>b.addEventListener('pointerdown',()=>hit(b.dataset.key)));
 </script>
 </body></html>
