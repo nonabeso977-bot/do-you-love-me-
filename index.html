@@ -3,33 +3,39 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#e9e5dc">
 <title>Beat Orbit | Sadeem Stage</title>
 <style>
 *{box-sizing:border-box}
 html,body{margin:0;width:100%;min-height:100%;font-family:Tahoma,Arial,sans-serif;background:#e9e5dc;color:#20252b}
 body{min-height:100svh;display:grid;place-items:center;overflow:hidden}
-.stage{position:relative;width:min(100vw,100svh);height:min(100vw,100svh);aspect-ratio:1/1;overflow:hidden;background:#f7f4ed url("https://raw.githubusercontent.com/nonabeso977-bot/do-you-love-me-/main/%D8%A8%D8%AF%D9%88%D9%86%20%D8%A7%D8%B3%D9%8513_20261124014011.png") center/100% 100% no-repeat;isolation:isolate}
-.topbar{position:absolute;z-index:10;top:2%;left:2%;right:2%;display:flex;justify-content:space-between;align-items:center;direction:ltr;pointer-events:none}
-.logo,.stat{background:#fff9;border:2px solid #252525;border-radius:5px;padding:clamp(4px,1.3vw,9px) clamp(6px,1.7vw,13px);font-size:clamp(8px,2vw,13px);font-weight:900;color:#20252b}
-.stats{display:flex;gap:5px}
+button{font:inherit}
+.stage{position:relative;width:min(100vw,100svh);height:min(100vw,100svh);aspect-ratio:1/1;overflow:hidden;background:#f7f4ed url("https://raw.githubusercontent.com/nonabeso977-bot/do-you-love-me-/main/%D8%A8%D8%AF%D9%88%D9%86%20%D8%A7%D8%B3%D9%8513_20261124014011.png") center/100% 100% no-repeat;isolation:isolate;touch-action:manipulation}
+.topbar{position:absolute;z-index:10;top:2%;left:2%;right:2%;display:flex;justify-content:space-between;align-items:center;direction:ltr;pointer-events:none;gap:4px}
+.logo,.stat{background:#fffF;border:2px solid #252525;border-radius:5px;padding:clamp(4px,1.2vw,9px) clamp(5px,1.5vw,12px);font-size:clamp(8px,1.9vw,13px);font-weight:900;color:#20252b;box-shadow:1px 2px 0 #0002}
+.stats{display:flex;gap:4px}
 .character{position:absolute;z-index:5;left:-1%;bottom:0;width:38%;height:58%;object-fit:contain;object-position:left bottom;pointer-events:none;filter:drop-shadow(0 2px 1px #3334)}
-.playfield{position:absolute;inset:0;z-index:4;pointer-events:none}
-.note{position:absolute;width:7.5%;height:3.2%;border:2px solid #252525;border-radius:5px;box-shadow:0 2px 0 #0002;transform:translate(-50%,-50%);animation:noteTravel var(--duration,2.7s) linear forwards;z-index:6}
+.playfield{position:absolute;inset:0;z-index:4;pointer-events:none;overflow:hidden}
+.note{position:absolute;width:7.5%;height:3.2%;border:2px solid #252525;border-radius:5px;box-shadow:0 2px 0 #0002;transform:translate(-50%,-50%);z-index:6;will-change:top,left}
 .note[data-lane="0"],.note[data-lane="3"]{background:#48b85b}
 .note[data-lane="1"],.note[data-lane="4"]{background:#e85a60}
 .note[data-lane="2"]{background:#f2d34c}
-@keyframes noteTravel{from{top:24%;left:var(--from);opacity:0}10%{opacity:1}to{top:84%;left:var(--to);opacity:1}}
-.hit-zones{position:absolute;z-index:8;left:23%;right:8%;bottom:13%;height:12%;display:grid;grid-template-columns:repeat(5,1fr);gap:1%;pointer-events:auto}
-.hit-zone{border:0;background:transparent;min-width:0;touch-action:manipulation}
-.hit-zone:active{background:#ffffff25}
-.toast{position:absolute;z-index:12;top:13%;left:50%;transform:translateX(-50%);font-weight:900;font-size:clamp(16px,4vw,30px);color:#222;background:#fff9;border:2px solid #222;padding:4px 10px;opacity:0;transition:opacity .12s;white-space:nowrap;pointer-events:none}
+.note.long{height:8%;border-radius:7px}
+.hitline{position:absolute;z-index:7;left:23%;right:8%;top:82%;height:3px;background:#252525aa;pointer-events:none}
+.hit-zones{position:absolute;z-index:8;left:23%;right:8%;bottom:8%;height:13%;display:grid;grid-template-columns:repeat(5,1fr);gap:1%;pointer-events:auto}
+.hit-zone{border:2px solid #25252588;border-radius:5px;background:#ffffff30;min-width:0;touch-action:manipulation;color:#252525;font-size:clamp(10px,2.3vw,16px);font-weight:900}
+.hit-zone:active,.hit-zone.pressed{background:#ffffffa8;transform:translateY(2px)}
+.toast{position:absolute;z-index:12;top:14%;left:50%;transform:translateX(-50%);font-weight:900;font-size:clamp(16px,4vw,30px);color:#222;background:#fffF;border:2px solid #222;padding:4px 10px;opacity:0;transition:opacity .12s;white-space:nowrap;pointer-events:none}
 .toast.show{opacity:1}
-.hudbottom{position:absolute;z-index:12;bottom:1%;left:50%;transform:translateX(-50%);background:#fff9;border:2px solid #252525;border-radius:5px;padding:4px 8px;font-size:clamp(8px,1.8vw,11px);white-space:nowrap}
+.hudbottom{position:absolute;z-index:12;bottom:1%;left:50%;transform:translateX(-50%);background:#fffE;border:2px solid #252525;border-radius:5px;padding:3px 7px;font-size:clamp(7px,1.6vw,10px);white-space:nowrap}
 .start{position:absolute;inset:0;z-index:20;display:grid;place-items:center;background:#f7f4edaa}
-.startbox{background:#fffaf0;border:3px solid #252525;border-radius:5px;box-shadow:4px 4px 0 #777;padding:20px;text-align:center;width:min(82%,300px)}
+.startbox{background:#fffaf0;border:3px solid #252525;border-radius:5px;box-shadow:4px 4px 0 #777;padding:18px;text-align:center;width:min(84%,310px)}
 .startbox h1{margin:0 0 8px;color:#24548c;font-size:clamp(20px,5vw,28px)}
-.startbox p{font-size:13px;line-height:1.7}
-button{font:inherit}.go{border:2px solid #252525;background:#e7c64b;color:#222;font-weight:bold;padding:10px 22px;border-radius:5px;cursor:pointer}
+.startbox p{font-size:13px;line-height:1.7;margin:8px 0 14px}
+.go{border:2px solid #252525;background:#e7c64b;color:#222;font-weight:bold;padding:10px 22px;border-radius:5px;cursor:pointer}
+.secondary{display:block;margin:10px auto 0;border:0;background:transparent;color:#24548c;text-decoration:underline;font-size:12px;cursor:pointer}
+.progress{position:absolute;z-index:11;top:9%;left:23%;right:8%;height:5px;background:#fff9;border:1px solid #25252566;border-radius:9px;overflow:hidden}
+.progress span{display:block;height:100%;width:0;background:#e7c64b}
 @media(max-aspect-ratio:1/1){.stage{width:100vw;height:100vw;flex:none}}
 @media(min-aspect-ratio:1/1){.stage{width:100svh;height:100svh}}
 </style>
@@ -37,32 +43,154 @@ button{font:inherit}.go{border:2px solid #252525;background:#e7c64b;color:#222;f
 <body>
 <main class="stage" id="stage">
  <header class="topbar"><div class="logo">BEAT ORBIT</div><div class="stats"><div class="stat">COMBO <span id="combo">0</span></div><div class="stat">SCORE <span id="score">0</span></div><div class="stat">LIFE <span id="life">100</span>%</div></div></header>
+ <div class="progress"><span id="progressFill"></span></div>
  <img class="character" src="https://raw.githubusercontent.com/nonabeso977-bot/do-you-love-me-/main/%D8%A8%D8%AF%D9%88%D9%86%20%D8%A7%D8%B3%D9%8513_20261124014302.png" alt="سديم">
  <section class="playfield" id="playfield"></section>
+ <div class="hitline"></div>
  <div class="hit-zones" id="keys" aria-label="مناطق الضغط">
-  <button class="hit-zone" data-key="a" aria-label="المسار الأول"></button>
-  <button class="hit-zone" data-key="s" aria-label="المسار الثاني"></button>
-  <button class="hit-zone" data-key="d" aria-label="المسار الثالث"></button>
-  <button class="hit-zone" data-key="f" aria-label="المسار الرابع"></button>
-  <button class="hit-zone" data-key="g" aria-label="المسار الخامس"></button>
+  <button class="hit-zone" data-key="a" aria-label="المسار الأول">A</button>
+  <button class="hit-zone" data-key="s" aria-label="المسار الثاني">S</button>
+  <button class="hit-zone" data-key="d" aria-label="المسار الثالث">D</button>
+  <button class="hit-zone" data-key="f" aria-label="المسار الرابع">F</button>
+  <button class="hit-zone" data-key="g" aria-label="المسار الخامس">G</button>
  </div>
  <div class="toast" id="toast">PERFECT!</div>
- <div class="hudbottom">A S D F G أو المسّي مواضع البلاطات</div>
- <div class="start" id="start"><div class="startbox"><h1>مرحلة سديم</h1><p>الخلفية الأصلية محفوظة كما هي، وسديم طبقة مستقلة فوقها. ابدئي الاختبار لتجربة النوتات.</p><button class="go" id="go">ابدئي الاختبار</button></div></div>
+ <div class="hudbottom">A S D F G أو المسّي أزرار المسارات مع الإيقاع</div>
+ <div class="start" id="start"><div class="startbox"><h1 id="panelTitle">مرحلة سديم</h1><p id="panelText">اختبري لعبة إيقاع أصلية. الموسيقى تُصنع داخل اللعبة، والنوتات تتحرك على النبض.</p><button class="go" id="go">ابدئي اللعب</button><button class="secondary" id="how">طريقة اللعب</button></div></div>
 </main>
 <script>
-const $=s=>document.querySelector(s),scoreEl=$('#score'),comboEl=$('#combo'),lifeEl=$('#life'),toast=$('#toast'),playfield=$('#playfield');
-let score=0,combo=0,life=100,running=false,spawnTimer=null;
-const codes=['a','s','d','f','g'];
-const far=[34,40,46,52,58],near=[27,36,45,54,63];
-function feedback(t){toast.textContent=t;toast.classList.add('show');clearTimeout(feedback.timer);feedback.timer=setTimeout(()=>toast.classList.remove('show'),450)}
+(()=>{
+'use strict';
+const $=s=>document.querySelector(s);
+const scoreEl=$('#score'),comboEl=$('#combo'),lifeEl=$('#life'),toast=$('#toast'),playfield=$('#playfield'),progressFill=$('#progressFill');
+const keys=['a','s','d','f','g'];
+const laneX=[27,36,45,54,63];
+const bpm=112,beat=60/bpm,travel=2.05,hitY=.82,duration=48;
+let score=0,combo=0,life=100,running=false,paused=false,startAt=0,pausedAt=0,lastFrame=0,raf=0,audio=null,scheduler=null,nextAudioBeat=0,toastTimer=0;
+let notes=[],nextChart=0,judged=0;
+const pattern=[
+ [0],[2],[1],[3],[4],[2],[0],[3],[1],[4],[2],[1],[3],[0],[4],[2],
+ [0,3],[1],[2,4],[0],[3],[1,4],[2],[0],[1,3],[4],[2],[0,4],[1],[3],[2],
+ [0],[1],[2],[3],[4],[3],[2],[1],[0],[2,4],[1],[3],[0,2],[4],[1],[3,4]
+];
 function render(){scoreEl.textContent=score;comboEl.textContent=combo;lifeEl.textContent=life}
-function spawn(){if(!running)return;const i=Math.floor(Math.random()*5),n=document.createElement('div');n.className='note';n.dataset.lane=i;n.style.setProperty('--from',far[i]+'%');n.style.setProperty('--to',near[i]+'%');n.style.setProperty('--duration',(2.5+Math.random()*.35)+'s');n.style.left=far[i]+'%';n.style.top='24%';playfield.appendChild(n);n.addEventListener('animationend',()=>{if(n.isConnected){n.remove();combo=0;life=Math.max(0,life-5);render();feedback('MISS');if(!life)stop()}})}
-function hit(code){if(!running)return;const i=codes.indexOf(code);if(i<0)return;const notes=[...playfield.querySelectorAll('.note')].filter(n=>Number(n.dataset.lane)===i);if(!notes.length){combo=0;life=Math.max(0,life-2);feedback('MISS');render();return}notes.sort((a,b)=>Math.abs(a.getBoundingClientRect().top-innerHeight*.78)-Math.abs(b.getBoundingClientRect().top-innerHeight*.78));const n=notes[0],d=Math.abs(n.getBoundingClientRect().top-innerHeight*.78);n.remove();if(d<innerHeight*.09){const rank=d<innerHeight*.035?'PERFECT':d<innerHeight*.065?'GREAT':'GOOD';combo++;score+=rank==='PERFECT'?100:rank==='GREAT'?70:40;feedback(rank);if(combo%20===0)feedback(combo+' COMBO!')}else{combo=0;life=Math.max(0,life-3);feedback('MISS')}render()}
-function start(){playfield.innerHTML='';score=0;combo=0;life=100;render();running=true;$('#start').style.display='none';spawnTimer=setInterval(spawn,760);spawn()}
-function stop(){running=false;clearInterval(spawnTimer);$('#start').style.display='grid';$('#start h1').textContent='انتهت الجولة';$('#start p').textContent='النتيجة: '+score+' | أعلى كومبو: '+combo;$('#go').textContent='إعادة الاختبار'}
-$('#go').addEventListener('click',start);
-document.addEventListener('keydown',e=>{if(codes.includes(e.key.toLowerCase())){e.preventDefault();hit(e.key.toLowerCase())}});
-document.querySelectorAll('.hit-zone').forEach(b=>b.addEventListener('pointerdown',()=>hit(b.dataset.key)));
+function feedback(text){toast.textContent=text;toast.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.remove('show'),430)}
+function makeAudio(){
+ const Ctx=window.AudioContext||window.webkitAudioContext;
+ if(!Ctx)return null;
+ const ctx=new Ctx(),master=ctx.createGain();master.gain.value=.19;master.connect(ctx.destination);
+ return {ctx,master};
+}
+function tone(at,freq,len,type,gain){
+ if(!audio)return;
+ const {ctx,master}=audio,osc=ctx.createOscillator(),vol=ctx.createGain();
+ osc.type=type;osc.frequency.setValueAtTime(freq,at);
+ vol.gain.setValueAtTime(.0001,at);vol.gain.exponentialRampToValueAtTime(gain,at+.012);vol.gain.exponentialRampToValueAtTime(.0001,at+len);
+ osc.connect(vol);vol.connect(master);osc.start(at);osc.stop(at+len+.025);
+}
+function musicBeat(index,at){
+ const bass=[110,110,146.83,130.81][Math.floor(index/4)%4];
+ if(index%4===0)tone(at,bass,.28,'triangle',.24);
+ const melody=[440,523.25,659.25,523.25,392,493.88,587.33,493.88];
+ tone(at,melody[index%melody.length],.12,'square',.055);
+ if(index%2===0)tone(at,880,.045,'sine',.035);
+}
+function startMusic(){
+ if(!audio)audio=makeAudio();
+ if(!audio)return;
+ audio.ctx.resume();
+ nextAudioBeat=0;
+ scheduler=setInterval(()=>{
+  if(!running||paused)return;
+  const now=audio.ctx.currentTime;
+  while(nextAudioBeat*beat<gameTime()+.22){
+   const gameBeat=nextAudioBeat;
+   musicBeat(gameBeat,now+Math.max(0,gameBeat*beat-gameTime()));
+   nextAudioBeat++;
+  }
+ },35);
+}
+function gameTime(){return running?(paused?pausedAt-startAt:performance.now()-startAt)/1000:0}
+function chartTime(i){return 2.2+i*beat*.5}
+function spawnChart(){
+ while(nextChart<pattern.length&&chartTime(nextChart)<=gameTime()+travel){
+  const t=chartTime(nextChart);
+  pattern[nextChart].forEach(lane=>{
+   const el=document.createElement('div');el.className='note';el.dataset.lane=lane;
+   el.style.left=laneX[lane]+'%';el.style.top='24%';playfield.appendChild(el);
+   notes.push({lane,time:t,el,done:false});
+  });
+  nextChart++;
+ }
+}
+function miss(note){
+ note.done=true;note.el.remove();combo=0;life=Math.max(0,life-7);judged++;feedback('MISS');render();
+ if(life<=0)finish(false);
+}
+function hit(key){
+ if(!running||paused)return;
+ const lane=keys.indexOf(key);if(lane<0)return;
+ const now=gameTime();
+ const candidates=notes.filter(n=>!n.done&&n.lane===lane&&Math.abs(n.time-now)<=.24).sort((a,b)=>Math.abs(a.time-now)-Math.abs(b.time-now));
+ if(!candidates.length){combo=0;life=Math.max(0,life-2);feedback('MISS');render();return}
+ const n=candidates[0],delta=Math.abs(n.time-now);
+ n.done=true;n.el.remove();judged++;combo++;
+ let rank,points;
+ if(delta<=.075){rank='PERFECT';points=100}
+ else if(delta<=.135){rank='GREAT';points=70}
+ else{rank='GOOD';points=40}
+ score+=points+Math.min(combo,50);feedback(rank);render();
+}
+function frame(now){
+ if(!running||paused)return;
+ const t=gameTime();
+ spawnChart();
+ notes.forEach(n=>{
+  if(n.done)return;
+  const p=(t-(n.time-travel))/travel;
+  const y=24+p*58;
+  n.el.style.top=y+'%';
+  if(t>n.time+.22)miss(n);
+ });
+ progressFill.style.width=Math.min(100,t/(chartTime(pattern.length-1)+1.8)*100)+'%';
+ if(t>chartTime(pattern.length-1)+2.5){finish(true);return}
+ raf=requestAnimationFrame(frame);
+}
+function clean(){
+ cancelAnimationFrame(raf);clearInterval(scheduler);clearTimeout(toastTimer);
+ notes.forEach(n=>n.el.remove());notes=[];playfield.innerHTML='';
+}
+function finish(completed){
+ running=false;paused=false;clean();
+ $('#start').style.display='grid';
+ $('#panelTitle').textContent=completed?'أحسنتِ!':'انتهت الجولة';
+ $('#panelText').textContent='النتيجة: '+score+'   |   أعلى كومبو: '+combo+'   |   دقة الضربات: '+(judged?Math.round(score/(judged*101)*100):0)+'%';
+ $('#go').textContent='إعادة اللعب';
+}
+async function start(){
+ clean();score=0;combo=0;life=100;judged=0;nextChart=0;progressFill.style.width='0%';render();
+ if(!audio)audio=makeAudio();
+ if(audio)await audio.ctx.resume();
+ running=true;paused=false;startAt=performance.now();$('#start').style.display='none';
+ startMusic();raf=requestAnimationFrame(frame);
+}
+function pause(){
+ if(!running)return;
+ if(!paused){paused=true;pausedAt=performance.now();cancelAnimationFrame(raf);$('#panelTitle').textContent='اللعبة متوقفة';$('#panelText').textContent='توقفت الموسيقى والنوتات مؤقتًا.';$('#go').textContent='متابعة';$('#start').style.display='grid'}
+ else{startAt+=performance.now()-pausedAt;paused=false;$('#start').style.display='none';raf=requestAnimationFrame(frame)}
+}
+$('#go').addEventListener('click',()=>{if(running&&paused)pause();else start()});
+$('#how').addEventListener('click',()=>{feedback('اضغطي المسار عند وصول النوتة إلى الخط');});
+document.addEventListener('keydown',e=>{
+ const key=e.key.toLowerCase();
+ if(keys.includes(key)){e.preventDefault();hit(key)}
+ if(e.key==='Escape'||e.key.toLowerCase()==='p')pause();
+});
+document.querySelectorAll('.hit-zone').forEach(b=>{
+ b.addEventListener('pointerdown',e=>{e.preventDefault();b.classList.add('pressed');hit(b.dataset.key)});
+ ['pointerup','pointercancel','pointerleave'].forEach(ev=>b.addEventListener(ev,()=>b.classList.remove('pressed')));
+});
+})();
 </script>
-</body></html>
+</body>
+</html>
