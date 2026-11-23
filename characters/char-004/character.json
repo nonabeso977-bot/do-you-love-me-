@@ -198,20 +198,27 @@
     "comboInteraction": {
       "enabled": true,
       "reactsToCombo": true,
+      "interactionMode": "sing_along_with_live_combo",
       "reactionEvents": [
         "combo_started",
         "combo_milestone",
         "combo_break",
+        "combo_recovered",
         "full_combo"
       ],
-      "animationHooks": [
-        "combo_idle",
-        "combo_cheer",
-        "combo_surprised",
-        "combo_disappointed",
-        "full_combo_celebration"
+      "vocalHooks": [
+        "sing_combo_phrase",
+        "sing_combo_milestone",
+        "brief_vocal_reaction",
+        "resume_singing",
+        "full_combo_vocal_finish"
       ],
-      "syncWithComboCounter": true,
+      "mouthAnimation": "sync_mouth_shapes_to_vocal_audio",
+      "rhythmSync": "follow_song_timing_and_combo_events",
+      "comboCounterSync": true,
+      "danceEnabled": false,
+      "endOfGameDance": false,
+      "defaultVocalSet": "pending",
       "defaultAnimationSet": "pending"
     }
   },
@@ -224,7 +231,9 @@
     "The turquoise mark below the visible eye is a mark, not a tear or an extra eye.",
     "Keep the small purple flower in the character's left hand.",
     "Do not add a nose, eyebrows, eyelashes, blush, extra ears, or unrequested accessories.",
-    "The character must be selectable and have combo-linked reactions; detailed animation assets remain to be created.",
-    "Name, backstory, voice, and exact animation timing have not been provided."
+    "Name, backstory, voice, and exact animation timing have not been provided.",
+    "The character sings along during gameplay and reacts vocally to the live combo; this is not an end-of-game dance routine.",
+    "Mouth movement should be synchronized with the character's vocal audio and the song timing.",
+    "Vocal recordings, singing phrases, and mouth-animation assets are not yet provided."
   ]
 }
