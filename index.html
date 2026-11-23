@@ -35,17 +35,10 @@ body{min-height:100svh;background:linear-gradient(#a9e6f4 0 57%,#a9d88e 57% 100%
 .keys{position:absolute;bottom:3%;left:5%;right:5%;height:80px;display:flex;justify-content:center;gap:7px;z-index:7;pointer-events:none}
 .key{width:min(9vw,62px);height:70px;border-radius:12px 12px 19px 19px;background:linear-gradient(145deg,#ffffffd9,#c8f1f3aa);border:2px solid #fff;box-shadow:0 8px 0 #6aa8b755,inset 0 0 14px #fff;display:grid;place-items:center;font-size:22px;font-weight:bold;color:#4d8298;pointer-events:auto;cursor:pointer;transition:.08s}
 .key.hit{transform:translateY(6px);box-shadow:0 2px 0 #6aa8b755,inset 0 0 18px #fff;background:#fff}
-.character{position:absolute;right:9%;bottom:12%;width:clamp(115px,18vw,190px);height:clamp(190px,34vw,300px);z-index:6;transition:left 1s ease,right 1s ease;pointer-events:none;filter:drop-shadow(0 8px 4px #507b7340)}
-.char-hair{position:absolute;top:0;left:9%;width:83%;height:44%;background:#cde8ec;border:4px solid #26313b;border-radius:48% 50% 35% 42%;box-shadow:inset -13px -5px #2ab7c4}
-.char-face{position:absolute;top:15%;left:23%;width:56%;height:31%;background:#dceff2;border:3px solid #26313b;border-radius:46% 48% 43% 45%}
-.char-eye{position:absolute;right:14%;top:28%;width:29%;height:38%;background:#0fa38c;border:3px solid #26313b;border-radius:50%;box-shadow:inset 5px 0 #fff}
-.char-mark{position:absolute;right:6%;top:69%;width:13px;height:10px;border-radius:50%;background:#5a2a4a}
-.char-flower{position:absolute;left:0;top:4%;font-size:27px;color:#8a2a7a;text-shadow:0 1px #fff}
-.char-body{position:absolute;top:47%;left:17%;width:66%;height:27%;background:#c8c2b8;border:3px solid #26313b;border-radius:25px 25px 15px 15px;text-align:center;color:#1fa98c;font-size:35px;padding-top:10px}
-.char-pants{position:absolute;top:70%;left:22%;width:58%;height:24%;background:#2f6bd8;border:3px solid #26313b;border-radius:8px 8px 18px 18px}
-.char-leg{position:absolute;bottom:0;width:24%;height:13%;background:#3a2a2a;border-radius:8px}.char-leg.l{left:25%}.char-leg.r{right:25%}
-.character.run{right:auto;left:10%;animation:bob .32s infinite alternate}
-@keyframes bob{to{transform:translateY(-7px) rotate(-2deg)}}
+.character{position:absolute;right:5%;bottom:9%;width:clamp(155px,22vw,230px);height:clamp(205px,31vw,300px);z-index:6;pointer-events:none;filter:drop-shadow(0 8px 4px #507b7340);transition:transform .25s ease}
+.character svg{display:block;width:100%;height:100%;overflow:visible}
+.character.run{transform:translateX(-12px) translateY(-3px)}
+@media(max-width:600px){.character{right:1%;bottom:16%;width:150px;height:205px}}
 .toast{position:absolute;top:10%;left:50%;transform:translateX(-50%);font-weight:900;font-size:clamp(20px,4vw,36px);color:#fff;text-shadow:0 3px 0 #4c8fbd,0 5px 14px #386b8c;z-index:10;opacity:0;transition:.12s;white-space:nowrap}
 .toast.show{opacity:1}
 .hudbottom{position:absolute;bottom:2%;left:50%;transform:translateX(-50%);z-index:9;background:#ffffffa8;border:1px solid white;border-radius:12px;padding:7px 12px;font-size:12px;white-space:nowrap}
@@ -74,9 +67,72 @@ button{font:inherit}.go{border:0;background:#4c9cc1;color:white;font-weight:bold
    <path class="laneedge" d="M380 10 C540 80 440 240 650 310 S880 390 1030 540"/>
   </svg>
   <div class="toast" id="toast">PERFECT!</div>
-  <div class="character" id="character" aria-label="Sadeem">
-   <div class="char-hair"></div><div class="char-face"><div class="char-eye"></div><div class="char-mark"></div></div><div class="char-flower">✿</div>
-   <div class="char-body">★</div><div class="char-pants"></div><div class="char-leg l"></div><div class="char-leg r"></div>
+  <div class="character" id="character" role="img" aria-label="سديم، جالسة وتمسك زهرة بنفسجية">
+   <svg viewBox="0 0 260 340" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <g stroke="#26313b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+     <!-- الخلفية: الشعر والخصلة الجانبية -->
+     <path fill="#cde8ec" d="M55 94 Q35 44 77 22 Q121 -3 171 19 Q218 36 219 91 L228 117 L208 135 L190 119 L65 137 L39 119 Z"/>
+     <path fill="#2ab7c4" stroke-width="3" d="M59 91 Q48 47 91 26 Q129 8 165 26 Q197 39 207 76 Q177 57 155 70 Q124 85 99 116 L61 128 Z"/>
+     <path fill="#cde8ec" stroke-width="3" d="M72 31 Q109 5 145 23 Q112 25 94 48 Q77 63 72 31Z"/>
+     <path fill="#fff" stroke="none" d="M82 33 Q110 12 134 22 Q110 26 94 43 Q84 47 82 33Z"/>
+     <path fill="#fff" stroke="none" d="M168 36 Q190 43 198 62 Q181 54 168 56 Q160 48 168 36Z"/>
+     <!-- الوجه -->
+     <path fill="#dceff2" d="M65 91 Q81 66 128 67 Q177 66 195 105 Q202 145 172 169 Q145 190 103 170 Q71 154 65 124Z"/>
+     <!-- أذن ظاهرة -->
+     <path fill="#dceff2" d="M185 102 Q218 66 226 82 Q228 111 199 132Z"/>
+     <path fill="#3ab5c0" stroke-width="2" d="M197 105 Q215 86 219 91 Q214 108 201 119Z"/>
+     <!-- العين الوحيدة الظاهرة -->
+     <path fill="#0fa38c" d="M139 112 Q157 91 178 105 Q190 120 176 141 Q157 153 143 136Z"/>
+     <path fill="#fff" stroke="none" d="M166 104 Q174 101 180 110 Q173 113 168 111Z"/>
+     <path fill="#fff" stroke="none" d="M151 108 Q158 99 165 108 Q162 118 154 118Z"/>
+     <path fill="none" stroke-width="6" d="M137 111 Q157 88 179 103"/>
+     <path fill="none" stroke-width="2" d="M144 140 Q159 148 174 139"/>
+     <!-- علامة صغيرة تحت العين وبقعة الخد -->
+     <path fill="#0b887f" stroke="none" d="M150 153 Q156 148 161 154 L158 161 L153 159Z"/>
+     <circle cx="164" cy="164" r="2.7" fill="#0b887f" stroke="none"/>
+     <ellipse cx="187" cy="155" rx="5" ry="3.5" fill="#5a2a4a" stroke="none"/>
+     <!-- الغرة تغطي العين الأخرى -->
+     <path fill="#cde8ec" d="M57 91 Q49 51 91 32 Q112 20 135 30 Q112 42 108 68 Q100 91 83 111 Q75 123 61 131Z"/>
+     <path fill="#2ab7c4" stroke-width="3" d="M94 47 Q119 27 140 34 Q126 51 126 72 Q121 91 101 105 Q107 78 94 47Z"/>
+     <path fill="#cde8ec" d="M117 42 Q143 25 168 42 Q153 52 149 72 Q138 62 117 69Z"/>
+     <path fill="#cde8ec" d="M173 49 Q204 51 213 84 L196 103 Q188 78 173 75Z"/>
+     <!-- ابتسامة -->
+     <path fill="none" stroke-width="3" d="M153 173 Q164 179 174 172"/>
+     <!-- الرقبة والياقة -->
+     <path fill="#dceff2" d="M111 174 L153 174 L153 193 L112 193Z"/>
+     <path fill="#2a5bd7" d="M94 188 L129 181 L165 190 L180 215 L143 207 L119 218 L81 207Z"/>
+     <path fill="#1a3fa0" stroke-width="2" d="M94 188 L119 218 L108 215 L81 207Z"/>
+     <path fill="#3ab5c0" stroke-width="2" d="M135 194 Q147 185 156 197 Q153 209 141 209 Q130 205 135 194Z"/>
+     <!-- الجذع والسترة -->
+     <path fill="#c8c2b8" d="M100 207 Q126 197 163 207 L184 258 Q151 276 103 260 L82 242Z"/>
+     <path fill="#1fa98c" stroke="none" d="M132 219 L141 231 L156 231 L145 241 L149 256 L132 247 L117 256 L121 240 L109 231 L125 231Z"/>
+     <!-- الذراع اليسرى الممتدة -->
+     <path fill="#a8e8e0" d="M97 218 Q79 220 67 240 L44 259 Q37 269 47 276 Q58 282 68 271 L100 248Z"/>
+     <path fill="#2a5bd7" d="M47 258 L36 270 Q39 283 54 282 L66 270Z"/>
+     <path fill="#dceff2" d="M39 272 Q25 267 20 278 Q19 290 35 293 L49 284Z"/>
+     <!-- زهرة بنفسجية في اليد -->
+     <path fill="none" stroke="#3a9a4a" stroke-width="4" d="M30 280 L19 252"/>
+     <g fill="#8a2a7a" stroke="#57205b" stroke-width="2">
+      <ellipse cx="18" cy="242" rx="7" ry="12"/>
+      <ellipse cx="29" cy="250" rx="7" ry="12" transform="rotate(72 29 250)"/>
+      <ellipse cx="24" cy="263" rx="7" ry="12" transform="rotate(144 24 263)"/>
+      <ellipse cx="11" cy="260" rx="7" ry="12" transform="rotate(216 11 260)"/>
+      <ellipse cx="7" cy="249" rx="7" ry="12" transform="rotate(288 7 249)"/>
+     </g>
+     <circle cx="18" cy="252" r="5" fill="#6a1f60" stroke="none"/>
+     <!-- الذراع اليمنى خلف الجسم، مستندة للأرض -->
+     <path fill="#3ab5c0" d="M165 218 Q190 225 202 247 L224 277 Q229 288 218 294 Q207 298 198 285 L169 260Z"/>
+     <path fill="#dceff2" d="M214 284 Q230 280 239 292 Q241 304 225 308 L208 300Z"/>
+     <!-- البنطال: ساقان مثنيتان -->
+     <path fill="#2f6bd8" d="M99 254 Q124 258 145 264 L153 291 Q146 311 119 309 L81 298 Q70 286 82 268Z"/>
+     <path fill="#2f6bd8" d="M143 260 Q170 253 188 267 Q203 281 194 302 L174 318 Q151 319 143 299 L133 279Z"/>
+     <path fill="#7aa5e8" stroke="none" d="M91 276 Q107 266 126 279 Q116 290 96 289Z"/>
+     <path fill="#7aa5e8" stroke="none" d="M157 274 Q174 263 186 278 Q176 287 159 286Z"/>
+     <!-- الحذاءان -->
+     <path fill="#3a2a2a" d="M81 293 Q98 299 117 307 L121 324 Q103 332 72 322 Q63 315 71 304Z"/>
+     <path fill="#3a2a2a" d="M172 304 Q189 300 203 310 L211 325 Q199 337 171 331 Q159 325 163 314Z"/>
+    </g>
+   </svg>
   </div>
   <div class="keys" id="keys">
    <button class="key" data-key="a">✕</button><button class="key" data-key="s">○</button><button class="key" data-key="d">□</button><button class="key" data-key="f">△</button>
