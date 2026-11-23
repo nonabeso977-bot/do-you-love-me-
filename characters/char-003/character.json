@@ -1,0 +1,144 @@
+{
+  "id": "char-003",
+  "displayName": "Unnamed",
+  "status": "concept",
+  "role": "main_cast_candidate",
+  "style": {
+    "type": "chibi",
+    "rendering": "flat_digital_hand_drawn",
+    "lineart": "minimal_or_none",
+    "shading": "soft_simple_shading",
+    "background": "#FFFFFF",
+    "palette": {
+      "skin": "#C19A72",
+      "hair": "#7A5A3E",
+      "hairShadow": "#5B4030",
+      "shirt": "#C0392B",
+      "shorts": "#7A5A3E",
+      "boxingGloves": "#6E1717",
+      "shoeRed": "#8F3028",
+      "shoeBrown": "#4A3028",
+      "shoeWhite": "#F2F0E8",
+      "chick": "#FFD928",
+      "chickBeak": "#F28C28",
+      "eyes": "#000000"
+    }
+  },
+  "appearance": {
+    "proportions": {
+      "headToBody": "large_chibi_head_small_compact_body",
+      "headShape": "wide_round_oval",
+      "body": "small_compact_full_body",
+      "crop": "full_body"
+    },
+    "skin": {
+      "color": "#C19A72",
+      "texture": "smooth_flat",
+      "nose": false,
+      "eyebrows": false,
+      "eyelashes": false,
+      "ears": false,
+      "blush": false
+    },
+    "hair": {
+      "color": "#7A5A3E",
+      "shadow": "#5B4030",
+      "silhouette": "large_rounded_dome_with_asymmetrical_spiky_tufts",
+      "texture": "smooth_flat",
+      "bangs": "separated_front_triangular_locks_that_do_not_cover_the_eyes",
+      "leftSide": "large_side_lock_or_ponytail_shape_projecting_from_upper_left",
+      "rightSide": "medium_horizontal_spike_and_triangular_locks_reaching_jaw_level",
+      "accessory": {
+        "type": "wide_red_ribbon",
+        "color": "#C0392B",
+        "position": "diagonally_around_left_side_hair_lock"
+      }
+    },
+    "face": {
+      "eyes": {
+        "count": 2,
+        "color": "#000000",
+        "shape": "simple_rounded_rectangles",
+        "highlights": false,
+        "irisVisible": false,
+        "pupilsSeparated": false,
+        "leftEye": "slightly_larger_and_positioned_higher",
+        "rightEye": "slightly_smaller"
+      },
+      "upperEyeLines": {
+        "count": 2,
+        "description": "thin_separate_curved_upper_lid_lines_above_the_eyes",
+        "areExtraEyes": false
+      },
+      "mouth": {
+        "shape": "small_downward_curved_line",
+        "expression": "unimpressed_slightly_sad"
+      },
+      "nose": false,
+      "eyebrows": false,
+      "eyelashes": false
+    },
+    "headAccessory": {
+      "type": "tiny_chick",
+      "position": "sitting_on_top_of_the_hair",
+      "bodyShape": "small_egg_or_pear_shape",
+      "bodyColor": "#FFD928",
+      "eyes": "two_tiny_black_dots",
+      "beak": "#F28C28",
+      "wings": "two_small_side_wings",
+      "legs": false,
+      "must_not_touch_face": true
+    },
+    "outfit": {
+      "shirt": {
+        "type": "red_sleeveless_shirt",
+        "color": "#C0392B",
+        "shoulders": "bare",
+        "straps": false,
+        "sleeves": false
+      },
+      "shorts": {
+        "type": "brown_shorts",
+        "color": "#7A5A3E",
+        "length": "above_the_knees"
+      },
+      "gloves": {
+        "type": "oversized_boxing_gloves",
+        "color": "#6E1717",
+        "pair": true,
+        "handsFullyCovered": true
+      },
+      "shoes": {
+        "type": "simple_chibi_sport_shoes",
+        "colors": [
+          "#8F3028",
+          "#4A3028",
+          "#F2F0E8"
+        ],
+        "description": "a combination of red, dark brown, and white panels"
+      }
+    }
+  },
+  "expression": [
+    "tired",
+    "flat",
+    "unimpressed",
+    "slightly_sad"
+  ],
+  "gameIntegration": {
+    "selectable": true,
+    "useAsStageCharacter": true,
+    "cosmeticsEnabled": true,
+    "defaultAnimationSet": "pending"
+  },
+  "notes": [
+    "The initial reference showed only the head; the completed character specification is full-body.",
+    "Keep the small yellow chick perched on top of the hair, separate from the face.",
+    "The red shirt is sleeveless with bare shoulders and no straps or sleeves.",
+    "The brown shorts must end above the knees.",
+    "The boxing gloves are deliberately oversized and dark red.",
+    "Shoes combine red, dark brown, and white.",
+    "Do not add a nose, eyebrows, eyelashes, ears, extra facial features, or unrequested accessories.",
+    "Character name, backstory, voice, and animation details have not been provided."
+  ]
+}
