@@ -10,12 +10,13 @@ Unnamed chibi character and friend of `char-003`.
 - Holds a small purple five-petal flower in the left hand.
 - Blue pointed collar, beige sleeveless vest with a green-turquoise star, long turquoise sleeves, blue trousers, and dark brown shoes.
 
-## Game integration
-- Selectable stage character.
-- Combo interaction is enabled.
-- Supports reaction hooks for combo start, combo milestones, combo break, and full combo.
-- Intended animation states: `combo_idle`, `combo_cheer`, `combo_surprised`, `combo_disappointed`, and `full_combo_celebration`.
-- Reactions should synchronize with the live combo counter. Animation artwork and timing are still pending.
+## Gameplay interaction: singing with the combo
+- The character is present during gameplay and **sings along with the music**.
+- Vocal reactions follow the live combo: starting a combo, reaching combo milestones, breaking the combo, recovering it, and achieving a full combo.
+- Mouth movement should sync with the vocal audio and the song's timing.
+- The character reacts to combo events through singing and brief vocal responses, not through a dance routine.
+- **No end-of-game dance.** The end-of-game result screen is not the character's dance moment.
+- Vocal recordings, singing phrases, and mouth-animation assets are still pending.
 
 ## Important visual constraints
 - Only one eye is visible. The other eye is fully hidden by the bangs; do not invent its appearance.
@@ -25,4 +26,4 @@ Unnamed chibi character and friend of `char-003`.
 - Keep the character standing. Do not reproduce the seated pose from the paper sketch.
 
 ## Unspecified
-The character has no assigned name, backstory, voice, or finished animation assets yet.
+The character has no assigned name, backstory, voice, or finished vocal assets yet.
