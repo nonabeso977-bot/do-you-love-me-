@@ -67,7 +67,7 @@ const keys=['a','s','d','f','g'];
 const laneX=[27,36,45,54,63];
 const bpm=112,beat=60/bpm,travel=2.05,hitY=.82,duration=48;
 let score=0,combo=0,life=100,running=false,paused=false,startAt=0,pausedAt=0,lastFrame=0,raf=0,audio=null,scheduler=null,nextAudioBeat=0,toastTimer=0;
-let notes=[],nextChart=0,judged=0;
+let notes=[],nextChart=0,judged=0,hits=0;
 const pattern=[
  [0],[2],[1],[3],[4],[2],[0],[3],[1],[4],[2],[1],[3],[0],[4],[2],
  [0,3],[1],[2,4],[0],[3],[1,4],[2],[0],[1,3],[4],[2],[0,4],[1],[3],[2],
@@ -134,7 +134,7 @@ function hit(key){
  const candidates=notes.filter(n=>!n.done&&n.lane===lane&&Math.abs(n.time-now)<=.24).sort((a,b)=>Math.abs(a.time-now)-Math.abs(b.time-now));
  if(!candidates.length){combo=0;life=Math.max(0,life-2);feedback('MISS');render();return}
  const n=candidates[0],delta=Math.abs(n.time-now);
- n.done=true;n.el.remove();judged++;combo++;
+ n.done=true;n.el.remove();judged++;hits++;combo++;
  let rank,points;
  if(delta<=.075){rank='PERFECT';points=100}
  else if(delta<=.135){rank='GREAT';points=70}
@@ -164,11 +164,11 @@ function finish(completed){
  running=false;paused=false;clean();
  $('#start').style.display='grid';
  $('#panelTitle').textContent=completed?'أحسنتِ!':'انتهت الجولة';
- $('#panelText').textContent='النتيجة: '+score+'   |   أعلى كومبو: '+combo+'   |   دقة الضربات: '+(judged?Math.round(score/(judged*101)*100):0)+'%';
+ $('#panelText').textContent='النتيجة: '+score+'   |   أعلى كومبو: '+combo+'   |   دقة الضربات: '+(judged?Math.round(hits/judged*100):0)+'%';
  $('#go').textContent='إعادة اللعب';
 }
 async function start(){
- clean();score=0;combo=0;life=100;judged=0;nextChart=0;progressFill.style.width='0%';render();
+ clean();score=0;combo=0;life=100;judged=0;nextChart=0;hits=0;progressFill.style.width='0%';render();
  if(!audio)audio=makeAudio();
  if(audio)await audio.ctx.resume();
  running=true;paused=false;startAt=performance.now();$('#start').style.display='none';
