@@ -31,7 +31,7 @@ body{min-height:100svh;background:linear-gradient(#a9e6f4 0 57%,#a9d88e 57% 100%
 .lane{fill:none;stroke:rgba(255,255,255,.42);stroke-width:54;stroke-linecap:round}
 .laneedge{fill:none;stroke:rgba(69,139,167,.23);stroke-width:2}
 .tile{position:absolute;width:clamp(42px,6vw,68px);height:24px;border-radius:10px;border:2px solid #fff;background:linear-gradient(135deg,#ffffffd9,#8ee7f0a8);box-shadow:0 5px 15px #4d9eaf55,inset 0 0 12px #fff;transform:rotate(-12deg);animation:travel 2.8s linear forwards;z-index:5}
-@keyframes travel{from{top:2%;left:12%;opacity:0}12%{opacity:1}to{top:88%;left:68%;opacity:1}}
+@keyframes travel{from{top:2%;left:var(--far);opacity:0}12%{opacity:1}to{top:88%;left:var(--near);opacity:1}}
 .keys{position:absolute;bottom:3%;left:5%;right:5%;height:80px;display:flex;justify-content:center;gap:7px;z-index:7;pointer-events:none}
 .key{width:min(9vw,62px);height:70px;border-radius:12px 12px 19px 19px;background:linear-gradient(145deg,#ffffffd9,#c8f1f3aa);border:2px solid #fff;box-shadow:0 8px 0 #6aa8b755,inset 0 0 14px #fff;display:grid;place-items:center;font-size:22px;font-weight:bold;color:#4d8298;pointer-events:auto;cursor:pointer;transition:.08s}
 .key.hit{transform:translateY(6px);box-shadow:0 2px 0 #6aa8b755,inset 0 0 18px #fff;background:#fff}
@@ -47,6 +47,20 @@ body{min-height:100svh;background:linear-gradient(#a9e6f4 0 57%,#a9d88e 57% 100%
 .startbox h1{margin:0 0 8px;color:#4c8fbd}.startbox p{font-size:14px;line-height:1.7}
 button{font:inherit}.go{border:0;background:#4c9cc1;color:white;font-weight:bold;padding:12px 25px;border-radius:14px;cursor:pointer}
 @media(max-width:600px){.house{transform:scale(.7);transform-origin:left bottom;left:4%;bottom:25%}.character{right:2%;bottom:17%}.playfield{inset:18% 0 8%}.keys{left:2%;right:2%;gap:4px}.key{height:58px}.hudbottom{bottom:1%}.stat{font-size:11px;padding:7px}}
+
+/* Beat Orbit: Sadeem's five-lane tunnel layout */
+.stage{background:linear-gradient(180deg,#a9e8f7 0%,#dff8fa 48%,#b5e69b 72%,#76c96e 100%)}
+.playfield{inset:13% 2% 5%}
+.lanes{filter:drop-shadow(0 8px 12px rgba(68,103,114,.14))}
+.tile{width:clamp(34px,5vw,58px);height:clamp(24px,3.4vw,34px);border-radius:8px;transform:translateX(-50%) rotate(-5deg);font-size:0;color:transparent;border:3px solid rgba(255,255,255,.9);box-shadow:0 5px 10px rgba(53,83,92,.18),inset 0 0 8px rgba(255,255,255,.7)}
+.key{width:min(17vw,100px);height:66px;border-radius:12px 12px 19px 19px;color:#fff;font-size:16px;border:3px solid rgba(255,255,255,.9);box-shadow:0 7px 0 rgba(58,77,86,.18);text-shadow:0 1px 2px #334}
+.key.green,.tile[data-i="0"],.tile[data-i="3"]{background:linear-gradient(145deg,#69d77a,#229d58)}
+.key.red,.tile[data-i="1"],.tile[data-i="4"]{background:linear-gradient(145deg,#ff8585,#dc414b)}
+.key.yellow,.tile[data-i="2"]{background:linear-gradient(145deg,#ffe879,#e8b92e)}
+.character{right:auto;left:2%;bottom:10%;transform:scale(.92);transform-origin:bottom left}
+.character.run{transform:translateX(12px) translateY(-3px) scale(.92)}
+@media(max-width:600px){.character{left:0;right:auto;bottom:18%;width:130px;height:180px}.keys{left:5%;right:5%;gap:5px}.key{height:54px;width:18vw;font-size:13px}.playfield{inset:17% 0 9%}}
+
 </style>
 </head>
 <body>
@@ -57,14 +71,13 @@ button{font:inherit}.go{border:0;background:#4c9cc1;color:white;font-weight:bold
  <header class="topbar"><div class="logo">BEAT ORBIT</div><div class="stats"><div class="stat">COMBO <span id="combo">0</span></div><div class="stat">SCORE <span id="score">0</span></div><div class="stat">LIFE <span id="life">100</span>%</div></div></header>
  <section class="playfield" id="playfield">
   <svg class="lanes" viewBox="0 0 1000 700" preserveAspectRatio="none" aria-hidden="true">
-   <path class="lane" d="M80 60 C250 110 120 280 390 340 S680 420 850 650"/>
-   <path class="lane" d="M180 30 C350 100 230 270 480 330 S760 430 940 620"/>
-   <path class="lane" d="M280 20 C440 90 340 260 570 320 S820 410 990 580"/>
-   <path class="lane" d="M380 10 C540 80 440 240 650 310 S880 390 1030 540"/>
-   <path class="laneedge" d="M80 60 C250 110 120 280 390 340 S680 420 850 650"/>
-   <path class="laneedge" d="M180 30 C350 100 230 270 480 330 S760 430 940 620"/>
-   <path class="laneedge" d="M280 20 C440 90 340 260 570 320 S820 410 990 580"/>
-   <path class="laneedge" d="M380 10 C540 80 440 240 650 310 S880 390 1030 540"/>
+   <path d="M300 0 Q270 170 80 700 L920 700 Q730 170 700 0 Z" fill="rgba(255,255,255,.30)" stroke="rgba(255,255,255,.78)" stroke-width="5"/>
+   <g fill="none" stroke="rgba(67,91,106,.72)" stroke-width="5" stroke-linecap="round">
+    <path d="M300 0 Q270 170 80 700"/><path d="M380 0 Q360 170 248 700"/><path d="M460 0 Q455 170 416 700"/><path d="M540 0 Q545 170 584 700"/><path d="M620 0 Q640 170 752 700"/><path d="M700 0 Q730 170 920 700"/>
+   </g>
+   <g fill="none" stroke="rgba(255,255,255,.68)" stroke-width="3">
+    <path d="M289 230 Q500 210 711 230"/><path d="M238 405 Q500 380 762 405"/><path d="M160 565 Q500 540 840 565"/>
+   </g>
   </svg>
   <div class="toast" id="toast">PERFECT!</div>
   <div class="character" id="character" role="img" aria-label="سديم، جالسة وتمسك زهرة بنفسجية">
@@ -135,23 +148,22 @@ button{font:inherit}.go{border:0;background:#4c9cc1;color:white;font-weight:bold
    </svg>
   </div>
   <div class="keys" id="keys">
-   <button class="key" data-key="a">✕</button><button class="key" data-key="s">○</button><button class="key" data-key="d">□</button><button class="key" data-key="f">△</button>
-   <button class="key" data-key="ArrowUp">↑</button><button class="key" data-key="ArrowDown">↓</button><button class="key" data-key="ArrowLeft">←</button><button class="key" data-key="ArrowRight">→</button>
+   <button class="key green" data-key="a">A</button><button class="key red" data-key="s">S</button><button class="key yellow" data-key="d">D</button><button class="key green" data-key="f">F</button><button class="key red" data-key="g">G</button>
   </div>
  </section>
- <div class="hudbottom">اضغطي A S D F أو الأسهم، أو المسّي المفاتيح</div>
+ <div class="hudbottom">اضغطي A S D F G، أو المسّي المفاتيح</div>
  <div class="start" id="start"><div class="startbox"><h1>مرحلة سديم</h1><p>اختبار أولي لمسارات البيانو المنحنية والبلاطات الزجاجية وتفاعل الشخصية.</p><button class="go" id="go">ابدئي الاختبار</button></div></div>
 </main>
 <script>
 const $=s=>document.querySelector(s), scoreEl=$('#score'),comboEl=$('#combo'),lifeEl=$('#life'),toast=$('#toast'),character=$('#character'),playfield=$('#playfield');
 let score=0,combo=0,life=100,running=false,spawnTimer=null,runTimer=null,lastHit=0;
-const symbols=['✕','○','□','△','↑','↓','←','→'],codes=['a','s','d','f','ArrowUp','ArrowDown','ArrowLeft','ArrowRight'];
+const symbols=['A','S','D','F','G'],codes=['a','s','d','f','g'];
 function feedback(text){toast.textContent=text;toast.classList.add('show');clearTimeout(feedback.t);feedback.t=setTimeout(()=>toast.classList.remove('show'),420)}
-function spawn(){if(!running)return;const i=Math.floor(Math.random()*8),tile=document.createElement('div');tile.className='tile';tile.dataset.i=i;tile.textContent=symbols[i];tile.style.left=(8+Math.random()*58)+'%';tile.style.top='-4%';tile.style.animationDuration=(2.4+Math.random()*.7)+'s';playfield.appendChild(tile);tile.addEventListener('animationend',()=>{if(tile.isConnected){tile.remove();combo=0;life=Math.max(0,life-5);render();feedback('MISS');if(life===0)stop()}});setTimeout(()=>{if(tile.isConnected)tile.style.opacity='.98'},50)}
+function spawn(){if(!running)return;const i=Math.floor(Math.random()*5),tile=document.createElement('div');tile.className='tile';tile.dataset.i=i;tile.textContent=symbols[i];const far=[30,40,48,56,66][i],near=[8,28,46,64,84][i];tile.style.setProperty('--far',far+'%');tile.style.setProperty('--near',near+'%');tile.style.left=far+'%';tile.style.top='-4%';tile.style.animationDuration=(2.4+Math.random()*.7)+'s';playfield.appendChild(tile);tile.addEventListener('animationend',()=>{if(tile.isConnected){tile.remove();combo=0;life=Math.max(0,life-5);render();feedback('MISS');if(life===0)stop()}});setTimeout(()=>{if(tile.isConnected)tile.style.opacity='.98'},50)}
 function render(){scoreEl.textContent=score;comboEl.textContent=combo;lifeEl.textContent=life}
 function hit(code){if(!running)return;const idx=codes.indexOf(code);if(idx<0)return;const key=document.querySelector('[data-key="'+code+'"]');if(key){key.classList.add('hit');setTimeout(()=>key.classList.remove('hit'),110)}
 const tiles=[...document.querySelectorAll('.tile')].filter(t=>Number(t.dataset.i)===idx);if(tiles.length){tiles.sort((a,b)=>Math.abs(a.getBoundingClientRect().top-window.innerHeight*.72)-Math.abs(b.getBoundingClientRect().top-window.innerHeight*.72));const t=tiles[0];const y=t.getBoundingClientRect().top;const diff=Math.abs(y-window.innerHeight*.72);t.remove();if(diff<130){const rank=diff<45?'PERFECT':diff<90?'GREAT':'GOOD';combo++;score+=rank==='PERFECT'?100:rank==='GREAT'?70:40;feedback(rank);character.style.transform='translateY(-7px)';setTimeout(()=>character.style.transform='',130);if(combo===20||combo===40||combo===60)feedback(combo+' COMBO!')}else{combo=0;life=Math.max(0,life-3);feedback('MISS')}}else{combo=0;life=Math.max(0,life-2);feedback('MISS')}render()}
-function start(){score=0;combo=0;life=100;render();running=true;$('#start').style.display='none';spawnTimer=setInterval(spawn,720);spawn();runTimer=setInterval(()=>{if(!running)return;character.classList.toggle('run')},850)}
+function start(){document.querySelectorAll('.tile').forEach(t=>t.remove());score=0;combo=0;life=100;render();running=true;$('#start').style.display='none';spawnTimer=setInterval(spawn,720);spawn();runTimer=setInterval(()=>{if(!running)return;character.classList.toggle('run')},850)}
 function stop(){running=false;clearInterval(spawnTimer);clearInterval(runTimer);feedback('انتهى الاختبار');$('#start').style.display='grid';$('#start h1').textContent='انتهت الجولة';$('#start p').textContent='النتيجة: '+score+' | أعلى كومبو: '+combo+' | أعيدي التجربة لتختبري الإيقاع مرة أخرى.';$('#go').textContent='إعادة الاختبار'}
 $('#go').addEventListener('click',start);document.addEventListener('keydown',e=>{if(codes.includes(e.key)){e.preventDefault();hit(e.key)}});document.querySelectorAll('.key').forEach(k=>k.addEventListener('pointerdown',()=>hit(k.dataset.key)));
 </script>
