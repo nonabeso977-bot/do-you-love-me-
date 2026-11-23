@@ -9,7 +9,7 @@
 
 A small-bodied chibi character with a very large, wide, rounded head. The skin is vivid green, while the oversized hair is pure white with soft pale-gray shading. The rendering is flat and hand-drawn, with no outline and deliberately simple, slightly imperfect edges.
 
-The white hair forms a large rounded dome over the skull. Long triangular bangs fall toward the face, with four pointed tufts on the left and three on the right. Keep the hair detail minimal, with only a couple of simple internal strands.
+The white hair forms a large rounded dome over the skull, then hangs down along the sides to shoulder level. Do not lift or shorten the side lengths. Long triangular bangs fall toward the face, with four pointed tufts on the left and three on the right. Keep the hair detail minimal, with only a couple of simple internal strands.
 
 A dark red bow sits on the upper-right side of the hair. A loose blue double-loop scribble rests on the forehead area, above the bangs.
 
