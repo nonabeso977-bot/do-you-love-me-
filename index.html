@@ -61,6 +61,48 @@ button{font:inherit}.go{border:0;background:#4c9cc1;color:white;font-weight:bold
 .character.run{transform:translateX(12px) translateY(-3px) scale(.92)}
 @media(max-width:600px){.character{left:0;right:auto;bottom:18%;width:130px;height:180px}.keys{left:5%;right:5%;gap:5px}.key{height:54px;width:18vw;font-size:13px}.playfield{inset:17% 0 9%}}
 
+
+/* Sadeem stage: match the hand-drawn reference composition */
+.stage{background:#f7f4ed}
+.stage:before{content:"";position:absolute;inset:0;z-index:0;background:
+ radial-gradient(circle at 5% 8%,#ffe36a 0 3.3%,transparent 3.5%),
+ radial-gradient(circle at 5% 8%,transparent 0 5.2%,#f4d35e 5.4% 5.7%,transparent 6%),
+ linear-gradient(180deg,#fbf8f1 0%,#f7f4ed 78%,#f3f0e8 100%)}
+.sun,.cloud,.hill,.house,.grassline{z-index:1}
+.sun{width:65px;height:65px;top:3%;left:2%;background:transparent;border:5px solid #e8c64b;box-shadow:none}
+.sun:before,.sun:after{background:#e8c64b;width:5px;height:28px;left:26px;top:-29px;box-shadow:0 93px #e8c64b}
+.sun:after{top:16px;left:-28px;transform:rotate(90deg);box-shadow:93px 0 #e8c64b}
+.cloud{width:110px;height:36px;top:10%;left:13%;background:#8fc2ed;border:4px solid #252525;filter:none;border-radius:35px}
+.cloud:before,.cloud:after{background:#8fc2ed;border:4px solid #252525;bottom:5px}
+.cloud:before{width:42px;height:48px;left:12px}.cloud:after{width:54px;height:58px;left:48px}
+.cloud.c2{left:78%;top:8%;transform:scale(.95)}
+.hill{display:none}
+.house{left:49%;bottom:51%;width:72px;height:65px;background:#ffe0a2;border:3px solid #252525;box-shadow:none;z-index:2}
+.roof{left:-8px;top:-31px;width:82px;height:39px;background:#f2cb55;border:3px solid #252525}
+.door{left:29px;width:17px;height:34px;border:2px solid #252525;background:#ee906c}
+.window{width:15px;height:17px;right:5px;top:12px;border:2px solid #252525}
+.grassline{bottom:22%;height:0;background:none;border-top:5px dashed #66b96c}
+.topbar{z-index:8}
+.logo,.stat{border:2px solid #252525;border-radius:4px;background:#fff9;color:#222}
+.playfield{inset:7% 0 2%;z-index:3}
+.lanes{z-index:2}
+.tile{width:clamp(28px,4.8vw,54px);height:clamp(20px,3vw,31px);border:3px solid #252525;border-radius:4px;box-shadow:none;transform:translateX(-50%);color:transparent;font-size:0}
+.tile[data-i="0"],.tile[data-i="3"]{background:#48b85b}
+.tile[data-i="1"],.tile[data-i="4"]{background:#e85a60}
+.tile[data-i="2"]{background:#f2d34c}
+@keyframes travel{from{top:25%;left:var(--far);opacity:0}12%{opacity:1}to{top:88%;left:var(--near);opacity:1}}
+.character{left:1%;right:auto;bottom:10%;width:clamp(130px,20vw,205px);height:clamp(200px,34vw,330px);z-index:6;transform:none;filter:drop-shadow(0 2px 0 #fff)}
+.character.run{transform:translateX(8px) translateY(-2px)}
+.keys{bottom:2%;left:23%;right:8%;height:65px;gap:7px;z-index:8}
+.key{height:58px;width:min(13vw,88px);border:3px solid #252525;border-radius:5px;box-shadow:none;color:transparent;text-shadow:none}
+.key.green{background:#48b85b}.key.red{background:#e85a60}.key.yellow{background:#f2d34c}
+.toast{z-index:12;color:#222;text-shadow:none;background:#fff9;border:2px solid #222;padding:5px 12px}
+.hudbottom{bottom:1%;left:50%;z-index:13;background:#fff9;border:2px solid #252525;color:#222}
+.start{background:#f7f4edcc;backdrop-filter:none}
+.startbox{border:3px solid #252525;border-radius:5px;box-shadow:4px 4px 0 #777;background:#fffaf0}
+.startbox h1{color:#24548c}.go{background:#e7c64b;color:#222;border:2px solid #252525;border-radius:5px}
+@media(max-width:600px){.character{left:0;right:auto;bottom:13%;width:125px;height:190px}.keys{left:25%;right:4%;bottom:2%;gap:3px}.key{height:48px;width:14vw}.house{left:49%;bottom:51%;transform:scale(.8);transform-origin:bottom left}.playfield{inset:8% 0 2%}}
+
 </style>
 </head>
 <body>
@@ -71,84 +113,49 @@ button{font:inherit}.go{border:0;background:#4c9cc1;color:white;font-weight:bold
  <header class="topbar"><div class="logo">BEAT ORBIT</div><div class="stats"><div class="stat">COMBO <span id="combo">0</span></div><div class="stat">SCORE <span id="score">0</span></div><div class="stat">LIFE <span id="life">100</span>%</div></div></header>
  <section class="playfield" id="playfield">
   <svg class="lanes" viewBox="0 0 1000 700" preserveAspectRatio="none" aria-hidden="true">
-   <path d="M300 0 Q270 170 80 700 L920 700 Q730 170 700 0 Z" fill="rgba(255,255,255,.30)" stroke="rgba(255,255,255,.78)" stroke-width="5"/>
-   <g fill="none" stroke="rgba(67,91,106,.72)" stroke-width="5" stroke-linecap="round">
-    <path d="M300 0 Q270 170 80 700"/><path d="M380 0 Q360 170 248 700"/><path d="M460 0 Q455 170 416 700"/><path d="M540 0 Q545 170 584 700"/><path d="M620 0 Q640 170 752 700"/><path d="M700 0 Q730 170 920 700"/>
+   <path d="M385 170 Q330 245 210 700 L930 700 Q660 250 430 170Z" fill="rgba(255,255,255,.16)" stroke="#252525" stroke-width="5"/>
+   <g fill="none" stroke="#242424" stroke-width="5" stroke-linecap="round">
+    <path d="M385 170 Q330 245 210 700"/>
+    <path d="M394 170 Q370 250 354 700"/>
+    <path d="M405 170 Q430 250 500 700"/>
+    <path d="M416 170 Q490 250 646 700"/>
+    <path d="M426 170 Q550 250 790 700"/>
+    <path d="M435 170 Q620 250 930 700"/>
    </g>
-   <g fill="none" stroke="rgba(255,255,255,.68)" stroke-width="3">
-    <path d="M289 230 Q500 210 711 230"/><path d="M238 405 Q500 380 762 405"/><path d="M160 565 Q500 540 840 565"/>
+   <g fill="none" stroke="#252525" stroke-width="4">
+    <path d="M354 360 Q500 340 646 360"/>
+    <path d="M280 500 Q500 478 720 500"/>
+    <path d="M225 610 Q500 590 875 610"/>
    </g>
   </svg>
   <div class="toast" id="toast">PERFECT!</div>
-  <div class="character" id="character" role="img" aria-label="سديم، جالسة وتمسك زهرة بنفسجية">
-   <svg viewBox="0 0 260 340" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <g stroke="#26313b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
-     <!-- الخلفية: الشعر والخصلة الجانبية -->
-     <path fill="#cde8ec" d="M55 94 Q35 44 77 22 Q121 -3 171 19 Q218 36 219 91 L228 117 L208 135 L190 119 L65 137 L39 119 Z"/>
-     <path fill="#2ab7c4" stroke-width="3" d="M59 91 Q48 47 91 26 Q129 8 165 26 Q197 39 207 76 Q177 57 155 70 Q124 85 99 116 L61 128 Z"/>
-     <path fill="#cde8ec" stroke-width="3" d="M72 31 Q109 5 145 23 Q112 25 94 48 Q77 63 72 31Z"/>
-     <path fill="#fff" stroke="none" d="M82 33 Q110 12 134 22 Q110 26 94 43 Q84 47 82 33Z"/>
-     <path fill="#fff" stroke="none" d="M168 36 Q190 43 198 62 Q181 54 168 56 Q160 48 168 36Z"/>
-     <!-- الوجه -->
-     <path fill="#dceff2" d="M65 91 Q81 66 128 67 Q177 66 195 105 Q202 145 172 169 Q145 190 103 170 Q71 154 65 124Z"/>
-     <!-- أذن ظاهرة -->
-     <path fill="#dceff2" d="M185 102 Q218 66 226 82 Q228 111 199 132Z"/>
-     <path fill="#3ab5c0" stroke-width="2" d="M197 105 Q215 86 219 91 Q214 108 201 119Z"/>
-     <!-- العين الوحيدة الظاهرة -->
-     <path fill="#0fa38c" d="M139 112 Q157 91 178 105 Q190 120 176 141 Q157 153 143 136Z"/>
-     <path fill="#fff" stroke="none" d="M166 104 Q174 101 180 110 Q173 113 168 111Z"/>
-     <path fill="#fff" stroke="none" d="M151 108 Q158 99 165 108 Q162 118 154 118Z"/>
-     <path fill="none" stroke-width="6" d="M137 111 Q157 88 179 103"/>
-     <path fill="none" stroke-width="2" d="M144 140 Q159 148 174 139"/>
-     <!-- علامة صغيرة تحت العين وبقعة الخد -->
-     <path fill="#0b887f" stroke="none" d="M150 153 Q156 148 161 154 L158 161 L153 159Z"/>
-     <circle cx="164" cy="164" r="2.7" fill="#0b887f" stroke="none"/>
-     <ellipse cx="187" cy="155" rx="5" ry="3.5" fill="#5a2a4a" stroke="none"/>
-     <!-- الغرة تغطي العين الأخرى -->
-     <path fill="#cde8ec" d="M57 91 Q49 51 91 32 Q112 20 135 30 Q112 42 108 68 Q100 91 83 111 Q75 123 61 131Z"/>
-     <path fill="#2ab7c4" stroke-width="3" d="M94 47 Q119 27 140 34 Q126 51 126 72 Q121 91 101 105 Q107 78 94 47Z"/>
-     <path fill="#cde8ec" d="M117 42 Q143 25 168 42 Q153 52 149 72 Q138 62 117 69Z"/>
-     <path fill="#cde8ec" d="M173 49 Q204 51 213 84 L196 103 Q188 78 173 75Z"/>
-     <!-- ابتسامة -->
-     <path fill="none" stroke-width="3" d="M153 173 Q164 179 174 172"/>
-     <!-- الرقبة والياقة -->
-     <path fill="#dceff2" d="M111 174 L153 174 L153 193 L112 193Z"/>
-     <path fill="#2a5bd7" d="M94 188 L129 181 L165 190 L180 215 L143 207 L119 218 L81 207Z"/>
-     <path fill="#1a3fa0" stroke-width="2" d="M94 188 L119 218 L108 215 L81 207Z"/>
-     <path fill="#3ab5c0" stroke-width="2" d="M135 194 Q147 185 156 197 Q153 209 141 209 Q130 205 135 194Z"/>
-     <!-- الجذع والسترة -->
-     <path fill="#c8c2b8" d="M100 207 Q126 197 163 207 L184 258 Q151 276 103 260 L82 242Z"/>
-     <path fill="#1fa98c" stroke="none" d="M132 219 L141 231 L156 231 L145 241 L149 256 L132 247 L117 256 L121 240 L109 231 L125 231Z"/>
-     <!-- الذراع اليسرى الممتدة -->
-     <path fill="#a8e8e0" d="M97 218 Q79 220 67 240 L44 259 Q37 269 47 276 Q58 282 68 271 L100 248Z"/>
-     <path fill="#2a5bd7" d="M47 258 L36 270 Q39 283 54 282 L66 270Z"/>
-     <path fill="#dceff2" d="M39 272 Q25 267 20 278 Q19 290 35 293 L49 284Z"/>
-     <!-- زهرة بنفسجية في اليد -->
-     <path fill="none" stroke="#3a9a4a" stroke-width="4" d="M30 280 L19 252"/>
-     <g fill="#8a2a7a" stroke="#57205b" stroke-width="2">
-      <ellipse cx="18" cy="242" rx="7" ry="12"/>
-      <ellipse cx="29" cy="250" rx="7" ry="12" transform="rotate(72 29 250)"/>
-      <ellipse cx="24" cy="263" rx="7" ry="12" transform="rotate(144 24 263)"/>
-      <ellipse cx="11" cy="260" rx="7" ry="12" transform="rotate(216 11 260)"/>
-      <ellipse cx="7" cy="249" rx="7" ry="12" transform="rotate(288 7 249)"/>
-     </g>
-     <circle cx="18" cy="252" r="5" fill="#6a1f60" stroke="none"/>
-     <!-- الذراع اليمنى خلف الجسم، مستندة للأرض -->
-     <path fill="#3ab5c0" d="M165 218 Q190 225 202 247 L224 277 Q229 288 218 294 Q207 298 198 285 L169 260Z"/>
-     <path fill="#dceff2" d="M214 284 Q230 280 239 292 Q241 304 225 308 L208 300Z"/>
-     <!-- البنطال: ساقان مثنيتان -->
-     <path fill="#2f6bd8" d="M99 254 Q124 258 145 264 L153 291 Q146 311 119 309 L81 298 Q70 286 82 268Z"/>
-     <path fill="#2f6bd8" d="M143 260 Q170 253 188 267 Q203 281 194 302 L174 318 Q151 319 143 299 L133 279Z"/>
-     <path fill="#7aa5e8" stroke="none" d="M91 276 Q107 266 126 279 Q116 290 96 289Z"/>
-     <path fill="#7aa5e8" stroke="none" d="M157 274 Q174 263 186 278 Q176 287 159 286Z"/>
-     <!-- الحذاءان -->
-     <path fill="#3a2a2a" d="M81 293 Q98 299 117 307 L121 324 Q103 332 72 322 Q63 315 71 304Z"/>
-     <path fill="#3a2a2a" d="M172 304 Q189 300 203 310 L211 325 Q199 337 171 331 Q159 325 163 314Z"/>
+  <div class="character" id="character" role="img" aria-label="سديم تغني وتمسك ميكروفونًا">
+   <svg viewBox="0 0 260 380" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <g stroke="#242424" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+     <path fill="#cde8ec" d="M40 100 Q22 35 86 20 Q155 -2 205 45 Q238 76 218 132 L235 155 L205 174 L50 164 L22 145Z"/>
+     <path fill="#75b9f5" stroke="none" d="M40 102 Q28 43 90 26 Q153 3 202 48 Q225 73 215 107 Q186 69 153 75 Q102 88 80 145 L38 149Z"/>
+     <path fill="#cde8ec" d="M47 90 Q72 35 123 35 Q92 64 99 104 Q83 140 52 156Z"/>
+     <path fill="#cde8ec" d="M113 42 Q160 17 194 54 Q167 61 156 96 Q139 114 116 118Z"/>
+     <path fill="#cde8ec" d="M190 65 Q230 82 222 127 L196 145 Q200 107 177 93Z"/>
+     <path fill="#dceff2" d="M63 110 Q94 78 151 84 Q190 91 196 135 Q196 180 151 196 Q104 205 74 173Z"/>
+     <path fill="#0c4b8d" d="M85 122 Q111 103 138 118 Q148 139 130 153 Q103 164 86 145Z"/>
+     <path fill="none" stroke="#f7d99c" stroke-width="3" d="M153 161 Q164 166 173 159"/>
+     <path fill="#dceff2" d="M112 193 L151 193 L151 216 L112 216Z"/>
+     <path fill="#8c9aa8" d="M83 211 Q130 198 170 214 L195 295 Q143 321 75 294Z"/>
+     <path fill="#164f91" stroke="none" d="M127 235 L140 254 L161 247 L150 267 L162 287 L139 277 L121 292 L126 269 L108 255 L130 256Z"/>
+     <path fill="#ffedcf" d="M84 221 Q54 230 48 280 L40 320 Q47 340 67 330 Q82 324 91 286Z"/>
+     <path fill="#ffedcf" d="M169 224 Q202 218 220 239 L230 259 Q224 274 209 264 L179 257Z"/>
+     <path fill="#536f8e" d="M83 294 L145 309 L129 374 L57 374Z"/>
+     <path fill="#536f8e" d="M143 305 L193 294 L238 372 L174 374Z"/>
+     <path fill="#3b3538" d="M213 250 L230 252 L221 302 L204 300Z"/>
+     <ellipse cx="222" cy="239" rx="18" ry="23" fill="#292b30"/>
+     <path fill="none" stroke="#666" stroke-width="2" d="M207 232 Q222 220 237 232 M207 241 Q222 229 237 241 M222 218 L222 260"/>
+    </g>
+    <g fill="#242424">
+     <path d="M228 207 q7 -13 14 0 q7 -13 14 0 q-7 16 -14 5 q-7 11 -14 -5Z"/>
+     <path d="M231 184 q6 -12 12 0 q6 -12 12 0 q-6 14 -12 5 q-6 9 -12 -5Z"/>
     </g>
    </svg>
-  </div>
-  <div class="keys" id="keys">
-   <button class="key green" data-key="a">A</button><button class="key red" data-key="s">S</button><button class="key yellow" data-key="d">D</button><button class="key green" data-key="f">F</button><button class="key red" data-key="g">G</button>
   </div>
  </section>
  <div class="hudbottom">اضغطي A S D F G، أو المسّي المفاتيح</div>
