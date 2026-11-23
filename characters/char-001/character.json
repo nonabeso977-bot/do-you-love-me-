@@ -1,0 +1,83 @@
+{
+  "id": "char-001",
+  "displayName": "Unnamed",
+  "status": "concept",
+  "role": "main_character",
+  "style": {
+    "type": "chibi",
+    "rendering": "simple_flat_digital",
+    "background": "#FFFFFF",
+    "palette": {
+      "hair": "#00F6FF",
+      "face": "#E8FFFF",
+      "shirt": "#123F38",
+      "wings": "#B9E8F2",
+      "halo": "#050505",
+      "eyes": "#050505"
+    }
+  },
+  "appearance": {
+    "hair": {
+      "color": "#00F6FF",
+      "notes": "Bright cyan hair with darker cyan shading and lighter highlights."
+    },
+    "face": {
+      "shape": "round",
+      "baseColor": "#E8FFFF",
+      "nose": false,
+      "eyebrows": false,
+      "eyelashes": false,
+      "lips": false,
+      "mouth": "small_open_O"
+    },
+    "eyes": {
+      "shape": "simple_oval",
+      "color": "#050505",
+      "count": 2,
+      "thirdEye": {
+        "present": true,
+        "position": "center_of_forehead",
+        "size": "small"
+      }
+    },
+    "ears": {
+      "shape": "pointed_cat_like"
+    },
+    "halo": {
+      "color": "#050505",
+      "shape": "thin_oval_ring",
+      "details": [
+        "small_spike_or_diamond_shape_at_top",
+        "two_side_arrows"
+      ]
+    },
+    "wings": {
+      "color": "#B9E8F2",
+      "shape": "small_to_medium",
+      "asymmetry": "right_wing_larger_than_left"
+    },
+    "clothing": {
+      "top": {
+        "type": "oversized_long_sleeve_shirt",
+        "color": "#123F38"
+      }
+    }
+  },
+  "expression": [
+    "mysterious",
+    "cute",
+    "slightly_surprised",
+    "slightly_tired"
+  ],
+  "gameIntegration": {
+    "selectable": true,
+    "useAsStageCharacter": true,
+    "cosmeticsEnabled": true,
+    "defaultAnimationSet": "pending"
+  },
+  "notes": [
+    "Character name and lore have not been provided yet.",
+    "Keep the right wing visibly larger than the left.",
+    "Preserve the third eye and thin black halo as signature features."
+  ]
+}
