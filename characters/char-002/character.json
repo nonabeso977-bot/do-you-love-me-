@@ -45,7 +45,7 @@
     "hair": {
       "color": "#FFFFFF",
       "coverage": "top_and_sides_of_head",
-      "silhouette": "large_round_dome",
+      "silhouette": "large rounded dome with long side sections reaching the shoulders",
       "texture": "soft_blurry_flat",
       "internalStrands": "two_simple_lines_only",
       "bangs": {
@@ -56,7 +56,9 @@
         "left": 4,
         "right": 3,
         "shape": "large_sharp_triangular_tufts"
-      }
+      },
+      "length": "long, hanging down to shoulder level",
+      "shoulderLength": true
     },
     "accessory": {
       "type": "bow",
@@ -128,6 +130,7 @@
     "Keep the bright green skin and white oversized hair as the dominant silhouette.",
     "Preserve the red bow, blue forehead scribble, spiral pink cheeks, and crossed arms.",
     "The three pink dots sit outside the upper-right edge of the head.",
-    "Do not add an outline, nose, eyebrows, eyelashes, fingers, legs, or visible feet."
+    "Do not add an outline, nose, eyebrows, eyelashes, fingers, legs, or visible feet.",
+    "The white hair must hang down to shoulder level; do not lift, shorten, or puff the side lengths upward."
   ]
 }
